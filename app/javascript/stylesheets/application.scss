@@ -1,0 +1,13 @@
+@import './bootstrap_custom.scss';
+
+table, td, th {
+  vertical-align: middle; border: none;
+}
+
+th {
+  border-bottom: 1px solid #DDD;
+}
+
+body {
+  margin: 0;
+}
