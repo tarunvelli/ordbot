@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: MyString
+  note: MyText
+  cost: 1.5
+
+two:
+  user: MyString
+  note: MyText
+  cost: 1.5
