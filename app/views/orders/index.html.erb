@@ -1,29 +1,4 @@
 <h1>Orders</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>From</th>
-      <th>Note</th>
-      <th>Cost</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= react_component("OrdersIndex", { orders: @orders }) %>
 
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.from %></td>
-        <td><%= order.note %></td>
-        <td><%= order.cost %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Order', new_order_path %>
