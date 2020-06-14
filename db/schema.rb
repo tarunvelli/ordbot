@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_06_14_103146) do
     t.string "from"
     t.text "note"
     t.float "cost"
+    t.string "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false
