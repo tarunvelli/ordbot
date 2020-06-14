@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      <th>From</th>
       <th>Note</th>
       <th>Cost</th>
       <th colspan="3"></th>
@@ -13,7 +13,7 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.user %></td>
+        <td><%= order.from %></td>
         <td><%= order.note %></td>
         <td><%= order.cost %></td>
         <td><%= link_to 'Show', order %></td>
