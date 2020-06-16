@@ -5,7 +5,7 @@
 
 import './bootstrap_custom.js'
 import '../stylesheets/application'
-
+import './sb-admin-2.js'
 
 require("@rails/ujs").start()
 require("turbolinks").start()

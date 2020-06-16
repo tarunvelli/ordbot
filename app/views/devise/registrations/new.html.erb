@@ -1,29 +1,52 @@
-<h2>Sign up</h2>
+<!-- Outer Row -->
+<div class="row justify-content-center">
+  <div class="col-xl-10 col-lg-12 col-md-9">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-lg-6 d-none d-lg-block bg-register-image"></div>
+          <div class="col-lg-6">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+              </div>
+              <%= form_for(resource, html: {class: 'user'}, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+                <div class="form-group">
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control form-control-user', placeholder:"Email Address" %>
+                </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              <%- password_placeholder = "Password" %>
+               <% if @minimum_password_length %>
+                 <%- password_placeholder += " (#{@minimum_password_length} characters minimum)" %>
+                <% end %>
+
+                <div class="form-group">
+                  <%= f.password_field :password, autocomplete: "new-password", class:'form-control form-control-user', placeholder:password_placeholder %>
+                </div>
+
+                <div class="form-group">
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'form-control form-control-user', placeholder:"Repeat Password" %>
+                </div>
+
+                <%= f.submit "Register Account", class: "btn btn-primary btn-user btn-block" %>
+
+                <hr>
+                <%= link_to "Register with Google", omniauth_authorize_path(resource_name, :google_oauth2), class:"btn btn-google btn-user btn-block" %>
+              <% end %>
+              <hr>
+              <div class="text-center">
+                <%= link_to "Forgot Password?", new_password_path(resource_name), class:'small' %><br />
+              </div>
+              <div class="text-center">
+                <%= link_to "Already have an account? Login!", new_user_session_path, class:'small' %><br />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
