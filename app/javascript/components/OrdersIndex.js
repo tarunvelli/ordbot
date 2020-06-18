@@ -31,10 +31,12 @@ class OrdersIndex extends React.Component {
 
   orderCard = (order) => {
     return(
-      <div style={{ border:'1px solid black', padding: '10px', margin: '10px' }} key={order.id}>
-        <h5>From : {order.from}</h5>
-        <h6>Note : {order.note}</h6>
-        <h6>Cost : {order.cost}</h6>
+      <div className="card" style={{ margin: '1rem', width: '18rem' }} key={order.id}>
+        <div className="card-body">
+          <h5>From : {order.from}</h5>
+          <h6>Note : {order.note}</h6>
+          <h6>Cost : {order.cost}</h6>
+        </div>
       </div>
     );
   }

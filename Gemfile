@@ -57,6 +57,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Added by developer
 gem 'devise'
-gem "react-rails", "~> 2.6"
+gem 'react-rails', '~> 2.6'
 gem 'omniauth-google-oauth2'
 gem 'twilio-ruby'

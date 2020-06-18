@@ -1,4 +1,4 @@
-class OrdersController < ApplicationController
+class OrdersController < PanelController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders
