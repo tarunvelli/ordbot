@@ -3,15 +3,4 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import './sb-admin-2.scss';
-
-table, td, th {
-  vertical-align: middle; border: none;
-}
-
-th {
-  border-bottom: 1px solid #DDD;
-}
-
-body {
-  margin: 0;
-}
+@import './landing-page.scss';

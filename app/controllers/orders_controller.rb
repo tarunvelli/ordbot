@@ -4,7 +4,7 @@ class OrdersController < PanelController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = current_user.orders
+    @orders = Order.all
   end
 
   # GET /orders/1

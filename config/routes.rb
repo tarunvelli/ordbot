@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+
+  root :to => "landingpage#index"
+
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  root 'orders#index'
-
-  resources :orders
+  resources :restaurants do
+    resources :orders
+  end
 
   post 'webhooks/:user_id', to: 'webhooks#receive'
 
