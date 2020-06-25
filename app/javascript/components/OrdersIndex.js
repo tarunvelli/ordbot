@@ -15,7 +15,7 @@ class OrdersIndex extends React.Component {
     this.cable = actioncable.createConsumer('ws://localhost:3000/cable');
     this.orderChannel = this.cable.subscriptions.create({
       channel: `OrdersChannel`,
-      user_id: this.props.user_id
+      restaurant_id: this.props.restaurant_id
     },{
       connected: () => {
           console.log("connected!")

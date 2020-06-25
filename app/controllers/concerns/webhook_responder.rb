@@ -35,8 +35,9 @@ module WebhookResponder
   def order_response(params)
     from = params['From'].gsub('whatsapp:', '')
     note = params['Body'].gsub('add', '')
-    user = User.find(params[:user_id])
-    order = Order.create(from: from, note: note, state: 'received', user: user)
+    restaurant = Restaurant.find(params['restaurant_id'])
+
+    order = Order.create(from: from, note: note, state: 'received', restaurant: restaurant)
     twiml = Twilio::TwiML::MessagingResponse.new do |r|
       r.message(body: "Order ID: #{order.id} received. Waiting for restaurant to accept order.")
     end
