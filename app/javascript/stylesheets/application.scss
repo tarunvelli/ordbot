@@ -4,3 +4,18 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import './sb-admin-2.scss';
 @import './landing-page.scss';
+
+.order-card {
+  width: 90%;
+}
+
+.order-card .navigation {
+  display: flex;
+  justify-content: space-around;
+}
+
+.orders-column {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
