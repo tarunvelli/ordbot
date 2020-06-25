@@ -5,7 +5,6 @@ class LandingpageController < ActionController::Base
 
   private
   def primary_restaurant_orders
-    # use roles to get the restaurant
-    restaurant_orders_path(restaurant_id: 1)
+    restaurant_orders_path(current_user.restaurants.first)
   end
 end

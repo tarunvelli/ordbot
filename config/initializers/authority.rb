@@ -30,6 +30,16 @@ Authority.configure do |config|
   #   :destroy => 'delete'
   # }
 
+config.controller_action_map = {
+  :index   => 'read',
+  :show    => 'read',
+  :new     => 'create',
+  :create  => 'create',
+  :edit    => 'update',
+  :update  => 'update',
+  :destroy => 'delete'
+}
+
   # ABILITIES
   # =========
   # Teach Authority how to understand the verbs and adjectives in your system. Perhaps you
@@ -44,6 +54,13 @@ Authority.configure do |config|
   #   :update => 'updatable',
   #   :delete => 'deletable'
   # }
+
+config.abilities =  {
+  :create => 'creatable',
+  :read   => 'readable',
+  :update => 'updatable',
+  :delete => 'deletable'
+}
 
   # LOGGER
   # ======
