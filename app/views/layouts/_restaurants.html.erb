@@ -7,8 +7,11 @@
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Select Restaurant:</h6>
       <%- @restaurants&.each do |restaurant| %>
-        <a class="collapse-item" href="#"> <%= restaurant.name %></a>
+        <%= link_to restaurant.name, restaurant_orders_path(restaurant), class: 'collapse-item' %>
       <%- end %>
+      <%= link_to new_restaurant_path, :class => 'collapse-item' do %>
+        <i class="fas fa-plus-circle text-gray-400"></i> Add Restaurant
+      <% end %>
     </div>
   </div>
 </li>
