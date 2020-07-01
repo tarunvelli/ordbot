@@ -1,27 +1,43 @@
-<%= form_with(model: restaurant, local: true) do |form| %>
-  <% if restaurant.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Tables</h1>
+<p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
 
-      <ul>
-        <% restaurant.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-lg-6">
+        <%= form_with(model: restaurant, local: true) do |form| %>
+          <% if restaurant.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+
+              <ul>
+                <% restaurant.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="form-group mb-2">
+            <%= form.label :name %>
+            <%= form.text_field :name, class: 'form-control form-control-sm' %>
+          </div>
+
+          <div class="form-group mb-2">
+            <%= form.label :address %>
+            <%= form.text_area :address, class: 'form-control form-control-sm' %>
+          </div>
+
+          <div class="form-group mb-2">
+            <%= form.submit class: 'btn btn-primary mb-2' %>
+          </div>
         <% end %>
-      </ul>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
   </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_area :address %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

@@ -25,6 +25,7 @@ class RestaurantsController < PanelController
   # POST /restaurants.json
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.users << current_user
 
     respond_to do |format|
       if @restaurant.save

@@ -6,7 +6,7 @@
   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Select Restaurant:</h6>
-      <%- @restaurants.each do |restaurant| %>
+      <%- @restaurants&.each do |restaurant| %>
         <a class="collapse-item" href="#"> <%= restaurant.name %></a>
       <%- end %>
     </div>

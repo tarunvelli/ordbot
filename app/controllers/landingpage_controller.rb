@@ -5,6 +5,10 @@ class LandingpageController < ActionController::Base
 
   private
   def primary_restaurant_orders
-    restaurant_orders_path(current_user.restaurants.first)
+    if current_user.restaurants.present?
+      restaurant_orders_path(current_user.restaurants.first)
+    else
+      new_restaurant_path
+    end
   end
 end

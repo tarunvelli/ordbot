@@ -6,7 +6,6 @@ class OrdersController < PanelController
   def index
     @orders = Order.all
     @restaurant = Restaurant.find(params['restaurant_id'])
-    @restaurants = current_user.restaurants
   end
 
   # GET /orders/1

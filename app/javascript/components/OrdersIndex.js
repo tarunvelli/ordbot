@@ -66,15 +66,18 @@ class OrdersIndex extends React.Component {
     return (
       <React.Fragment>
         <div className="row">
-          <div className="col-sm-4 orders-column">
+          <div className="col-sm-3 orders-column">
             <h4>Received</h4>
             {orders}
           </div>
-          <div className="col-sm-4 orders-column">
+          <div className="col-sm-3 orders-column">
             <h4>Preparing</h4>
           </div>
-          <div className="col-sm-4 orders-column">
+          <div className="col-sm-3 orders-column">
             <h4>Delivering</h4>
+          </div>
+          <div className="col-sm-3 orders-column">
+            <h4>Delivered</h4>
           </div>
         </div>
       </React.Fragment>
