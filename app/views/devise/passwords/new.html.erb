@@ -15,7 +15,7 @@
               <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'user' }) do |f| %>
                 <%= render "devise/shared/error_messages", resource: resource %>
                 <div class="form-group">
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-user", placeholder:"Enter Email Address..." %>
+                  <%= f.email_field :email, autocomplete: "email", class: "form-control form-control-user", placeholder:"Enter Email Address..." %>
                 </div>
                 <div class="actions">
                   <%= f.submit "Reset Password", class: "btn btn-primary btn-user btn-block" %>
