@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_25_125638) do
+ActiveRecord::Schema.define(version: 2020_07_04_094214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,12 @@ ActiveRecord::Schema.define(version: 2020_06_25_125638) do
     t.text "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "encrypted_account_sid"
+    t.string "encrypted_account_sid_iv"
+    t.string "encrypted_auth_token"
+    t.string "encrypted_auth_token_iv"
+    t.index ["encrypted_account_sid_iv"], name: "index_restaurants_on_encrypted_account_sid_iv", unique: true
+    t.index ["encrypted_auth_token_iv"], name: "index_restaurants_on_encrypted_auth_token_iv", unique: true
   end
 
   create_table "restaurants_users", id: false, force: :cascade do |t|

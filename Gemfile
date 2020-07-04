@@ -59,6 +59,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 # Added by developer
+gem 'attr_encrypted', '~> 3.1.0'
 gem 'authority'
 gem 'devise'
 gem 'react-rails', '~> 2.6'

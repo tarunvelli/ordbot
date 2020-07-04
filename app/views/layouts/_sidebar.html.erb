@@ -15,43 +15,48 @@
       <!-- Nav Item - Pages Collapse Menu -->
       <%= render 'layouts/restaurants' %>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
 
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-cash-register"></i>
-          <span>Register</span></a>
-      </li>
+      <%- if @restaurants.present? %>
 
-      <!-- Nav Item - Delivery -->
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-biking"></i>
-          <span>Delivery Orders</span></a>
-      </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
 
-      <!-- Nav Item - In house -->
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-door-open"></i>
-          <span>Dine In / Take Out</span></a>
-      </li>
+        <!-- Nav Item - Dashboard -->
+        <!-- <li class="nav-item"> -->
+        <!--   <a class="nav-link" href="#"> -->
+        <!--     <i class="fas fa-fw fa-cash-register"></i> -->
+        <!--     <span>Register</span></a> -->
+        <!-- </li> -->
 
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Reports</span></a>
-      </li>
+        <!-- Nav Item - Orders -->
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-biking"></i>
+            <span>Orders</span></a>
+        </li>
 
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-cogs"></i>
-          <span>Settings</span></a>
-      </li>
+        <!-- Nav Item - In house -->
+        <!-- <li class="nav-item"> -->
+        <!--   <a class="nav-link" href="#"> -->
+        <!--     <i class="fas fa-fw fa-door-open"></i> -->
+        <!--     <span>Dine In / Take Out</span></a> -->
+        <!-- </li> -->
+
+        <!-- Nav Item - Reports -->
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Reports</span></a>
+        </li>
+
+        <!-- Nav Item - Settings -->
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-cogs"></i>
+            <span>Settings</span></a>
+        </li>
+
+      <% end %>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
