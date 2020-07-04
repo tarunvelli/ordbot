@@ -1,11 +1,11 @@
 class OrdersController < PanelController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:index]
 
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
-    @restaurant = Restaurant.find(params['restaurant_id'])
+    @orders = @restaurant.orders
   end
 
   # GET /orders/1
@@ -66,6 +66,10 @@ class OrdersController < PanelController
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
+    end
+
+    def set_restaurant
+      @restaurant = Restaurant.find(params[:restaurant_id])
     end
 
     # Only allow a list of trusted parameters through.

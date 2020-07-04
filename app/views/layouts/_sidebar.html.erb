@@ -15,25 +15,17 @@
       <!-- Nav Item - Pages Collapse Menu -->
       <%= render 'layouts/restaurants' %>
 
-
-      <%- if @restaurants.present? %>
+      <%- if @restaurant.present? && @restaurant.persisted? %>
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
-        <!-- Nav Item - Dashboard -->
+        <!-- Nav Item - Register -->
         <!-- <li class="nav-item"> -->
         <!--   <a class="nav-link" href="#"> -->
         <!--     <i class="fas fa-fw fa-cash-register"></i> -->
         <!--     <span>Register</span></a> -->
         <!-- </li> -->
-
-        <!-- Nav Item - Orders -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-biking"></i>
-            <span>Orders</span></a>
-        </li>
 
         <!-- Nav Item - In house -->
         <!-- <li class="nav-item"> -->
@@ -42,18 +34,29 @@
         <!--     <span>Dine In / Take Out</span></a> -->
         <!-- </li> -->
 
+
+        <!-- Nav Item - Orders -->
+        <%- restaurant_orders_link = restaurant_orders_path(@restaurant) %>
+        <li class="nav-item <%= active_class(restaurant_orders_link) %>">
+          <%= link_to restaurant_orders_link, class: "nav-link" do %>
+            <i class="fas fa-fw fa-biking"></i> Orders
+          <% end %>
+        </li>
+
         <!-- Nav Item - Reports -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Reports</span></a>
+        <%- restaurant_link = restaurant_path(@restaurant) %>
+        <li class="nav-item <%= active_class(restaurant_link) %>">
+          <%= link_to restaurant_link, class: "nav-link" do %>
+            <i class="fas fa-fw fa-chart-line"></i> Reports
+          <% end %>
         </li>
 
         <!-- Nav Item - Settings -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-cogs"></i>
-            <span>Settings</span></a>
+        <%- edit_restaurant_link = edit_restaurant_path(@restaurant) %>
+        <li class="nav-item <%= active_class(edit_restaurant_link) %>">
+          <%= link_to edit_restaurant_link, class: "nav-link" do %>
+            <i class="fas fa-fw fa-cogs"></i> Settings
+          <% end %>
         </li>
 
       <% end %>

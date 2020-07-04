@@ -1,6 +1,6 @@
 class PanelController < ActionController::Base
-  include InitResources
+  include SetResources
 
   before_action :authenticate_user!
-  before_action :init_restaurants
+  before_action :set_restaurants
 end

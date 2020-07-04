@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-module InitResources
+module SetResources
   extend ActiveSupport::Concern
 
-  def init_restaurants
+  def set_restaurants
     @restaurants = current_user.restaurants
   end
 end
