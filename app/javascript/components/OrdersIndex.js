@@ -61,24 +61,31 @@ class OrdersIndex extends React.Component {
     );
   };
 
+  ordersColumn = (status) => {
+    let orders = this.state.orders
+      .filter((order) => order.state === status.toLowerCase() )
+      .map((order) => this.orderCard(order));
+
+    return (
+      <div className="col-sm-3 orders-column">
+        <div className="orders-column-container">
+          <div className="orders-column-head">
+            <h4>{status}</h4>
+          </div>
+          {orders}
+        </div>
+      </div>
+    )
+  }
+
   render() {
-    let orders = this.state.orders.map((order) => this.orderCard(order));
     return (
       <React.Fragment>
         <div className="row">
-          <div className="col-sm-3 orders-column">
-            <h4>Received</h4>
-            {orders}
-          </div>
-          <div className="col-sm-3 orders-column">
-            <h4>Preparing</h4>
-          </div>
-          <div className="col-sm-3 orders-column">
-            <h4>Delivering</h4>
-          </div>
-          <div className="col-sm-3 orders-column">
-            <h4>Delivered</h4>
-          </div>
+          { this.ordersColumn('Received') }
+          { this.ordersColumn('Preparing') }
+          { this.ordersColumn('Delivering') }
+          { this.ordersColumn('Delivered') }
         </div>
       </React.Fragment>
     );

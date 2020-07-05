@@ -6,7 +6,7 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 @import './landing-page.scss';
 
 .order-card {
-  width: 90%;
+  margin: 0.5em;
 }
 
 .order-card .navigation {
@@ -18,4 +18,16 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
   flex-direction: column;
   display: flex;
   align-items: center;
+}
+
+.orders-column-container {
+  background-color: #ebecf0;
+  width: 100%;
+  padding: 0.5em;
+  min-height: 100%;
+}
+
+.orders-column-head {
+  display: flex;
+  justify-content: center;
 }
