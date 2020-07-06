@@ -51,6 +51,14 @@
           <% end %>
         </li>
 
+        <!-- Nav Item - Items -->
+        <%- restaurant_items_link = restaurant_items_path(@restaurant) %>
+        <li class="nav-item <%= active_class(restaurant_items_link) %>">
+          <%= link_to restaurant_items_link, class: "nav-link" do %>
+            <i class="fas fa-fw fa-cookie-bite"></i> Menu items
+          <% end %>
+        </li>
+
         <!-- Nav Item - Settings -->
         <%- edit_restaurant_link = edit_restaurant_path(@restaurant) %>
         <li class="nav-item <%= active_class(edit_restaurant_link) %>">

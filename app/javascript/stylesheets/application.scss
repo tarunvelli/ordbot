@@ -4,30 +4,4 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import './sb-admin-2.scss';
 @import './landing-page.scss';
-
-.order-card {
-  margin: 0.5em;
-}
-
-.order-card .navigation {
-  display: flex;
-  justify-content: space-around;
-}
-
-.orders-column {
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-}
-
-.orders-column-container {
-  background-color: #ebecf0;
-  width: 100%;
-  padding: 0.5em;
-  min-height: 100%;
-}
-
-.orders-column-head {
-  display: flex;
-  justify-content: center;
-}
+@import './orders.scss';

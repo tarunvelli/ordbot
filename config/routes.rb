@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :restaurants do
     resources :orders
+    resources :items
   end
 
   post 'webhooks/:restaurant_id', to: 'webhooks#receive', as: 'restaurant_webhook'

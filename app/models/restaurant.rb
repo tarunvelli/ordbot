@@ -4,6 +4,7 @@ class Restaurant < ApplicationRecord
 
   has_and_belongs_to_many :users
   has_many :orders
+  has_many :items
 
   attr_encrypted :account_sid, key: :account_sid_encryption_key
   attr_encrypted :auth_token, key: :auth_token_encryption_key
