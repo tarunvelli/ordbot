@@ -1,32 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Items</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Cost</th>
-      <th>Category</th>
-      <th>Restaurant</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.name %></td>
-        <td><%= item.cost %></td>
-        <td><%= item.category %></td>
-        <td><%= item.restaurant_id %></td>
-        <td><%= link_to 'Show', restaurant_item_path(@restaurant, item) %></td>
-        <td><%= link_to 'Edit', edit_restaurant_item_path(@restaurant, item) %></td>
-        <td><%= link_to 'Destroy', [@restaurant, item], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Menu Items</h6>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-8">
+        <%- @items.group_by(&:category).each do |category, category_items| %>
+          <%= render 'items_table', category: category, category_items: category_items %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <br>
 

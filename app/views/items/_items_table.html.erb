@@ -1,0 +1,18 @@
+<table class="table table-sm table-hover table-responsive-md">
+  <thead>
+    <tr colspan="4">
+      <%= category %></p>
+    </tr>
+  </thead>
+  <tbody>
+    <% category_items.each do |item| %>
+      <tr class="d-flex">
+        <td class="col-6"><%= item.name %></td>
+        <td class="col-2"><%= item.cost %></td>
+        <!-- <td><%= link_to 'Show', restaurant_item_path(@restaurant, item) %></td> -->
+        <td class="col-2"><%= link_to 'Edit', edit_restaurant_item_path(@restaurant, item) %></td>
+        <td class="col-2"><%= link_to 'Destroy', [@restaurant, item], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
