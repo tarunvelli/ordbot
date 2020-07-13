@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   post 'webhooks/:restaurant_id', to: 'webhooks#receive', as: 'restaurant_webhook'
+  get 'menu/:restaurant_id', to: 'menu#show', as: 'restaurant_menu'
 
   mount ActionCable.server => '/cable'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

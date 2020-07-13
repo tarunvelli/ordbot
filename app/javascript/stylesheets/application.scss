@@ -1,7 +1,6 @@
 $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 
+@import "bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/solid";
-@import './sb-admin-2.scss';
-@import './landing-page.scss';
 @import './orders.scss';
