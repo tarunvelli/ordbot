@@ -1,29 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @item.name %>
-</p>
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Menu Item</h6>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-lg-6">
+        <p>
+          <strong>Name:</strong>
+          <%= @item.name %>
+        </p>
 
-<p>
-  <strong>Cost:</strong>
-  <%= @item.cost %>
-</p>
+        <p>
+          <strong>Cost:</strong>
+          <%= @item.cost %>
+        </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @item.category %>
-</p>
+        <p>
+          <strong>Category:</strong>
+          <%= @item.category %>
+        </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @item.description %>
-</p>
+        <p>
+          <strong>Description:</strong>
+          <%= @item.description %>
+        </p>
 
-<p>
-  <strong>Restaurant:</strong>
-  <%= @item.restaurant_id %>
-</p>
+        <p>
+          <strong>Restaurant:</strong>
+          <%= @item.restaurant_id %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_restaurant_item_path(@restaurant, @item) %> |
 <%= link_to 'Back', restaurant_items_path %>

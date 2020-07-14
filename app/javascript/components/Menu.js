@@ -13,11 +13,11 @@ class OrdersIndex extends React.Component {
 
   lineitem = (item) => {
     return (
-      <div class="col-lg-6 menu-item filter-starters">
-        <div class="menu-content">
+      <div className="col-lg-6 menu-item filter-starters">
+        <div className="menu-content">
         <a href="#">{ item.name }</a><span>$ { item.cost }</span>
         </div>
-        <div class="menu-ingredients">
+        <div className="menu-ingredients">
           { item.description }
         </div>
       </div>
@@ -30,7 +30,7 @@ class OrdersIndex extends React.Component {
 
     return (
       <React.Fragment>
-        <div class="row menu-container">
+        <div className="row menu-container">
           { items }
         </div>
       </React.Fragment>
