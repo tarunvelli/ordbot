@@ -1,1 +1,20 @@
-<%= render 'form', restaurant: @restaurant, item: @item %>
+<p id="notice"><%= notice %></p>
+
+<div class="card shadow mb-4">
+  <div class="card-body">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="edit-item-tab" data-toggle="tab" href="#edit-item" role="tab" aria-controls="edit-item" aria-selected="false">Edit Item</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane show active" id="edit-item" role="tabpanel" aria-labelledby="edit-item-tab">
+        <br/>
+        <%= link_to restaurant_items_path do %>
+          <i class="fa fa-arrow-circle-left"></i> Back
+        <% end %>
+        <%= render 'form', restaurant: @restaurant, item: @item %>
+      </div>
+    </div>
+  </div>
+</div>

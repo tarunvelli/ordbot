@@ -1,34 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <div class="card shadow mb-4">
-  <div class="card-header py-3">
-    <div class="row">
-      <div class="col-md-10">
-        <h6 class="m-0 font-weight-bold text-primary">Menu Items</h6>
-      </div>
-      <div class="col-md-2">
-        <%= link_to new_restaurant_item_path do %>
-          <i class="fa fa-boxes"></i> Bulk Upload
-        <% end %>
-      </div>
-    </div>
-  </div>
   <div class="card-body">
-    <div class="row">
-      <div class="col-md-8">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="all-items-tab" data-toggle="tab" href="#all-items" role="tab" aria-controls="all-items" aria-selected="true">All Items</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane show active" id="all-items" role="tabpanel" aria-labelledby="all-items-tab">
+        <br/>
         <%= link_to new_restaurant_item_path do %>
-          <i class="fa fa-plus-circle"></i> New Item
+          <i class="fa fa-plus-circle"></i> Add
         <% end %>
-        <br/>
-        <br/>
-        <%- @items.group_by(&:category).each do |category, category_items| %>
-          <%= render 'items_table', category: category, category_items: category_items %>
-        <% end %>
+        <div class="row">
+          <div class="col-md-8">
+            <br/>
+            <%- @items.group_by(&:category).each do |category, category_items| %>
+              <%= render 'items_table', category: category, category_items: category_items %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<br>
-
-

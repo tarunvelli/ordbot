@@ -1,4 +1,6 @@
 class ItemsController < PanelController
+  include ParseFile
+
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_restaurant
 
@@ -25,8 +27,7 @@ class ItemsController < PanelController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(item_params)
-    @item.restaurant = @restaurant
+    @item = @restaurant.items.new(item_params)
 
     respond_to do |format|
       if @item.save
@@ -61,6 +62,22 @@ class ItemsController < PanelController
       format.html { redirect_to restaurant_items_url(@restaurant), notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def parse
+    @new_items = create_items_from_file(params[:uploaded_file])
+
+    respond_to do |format|
+      unless @new_items.any? { |item| item.errors.any? }
+        format.html { redirect_to restaurant_items_url(@restaurant), notice: 'Item was successfully created.' }
+      else
+        format.html { render :new }
+      end
+    end
+  end
+
+  def sample_file
+    send_file('public/restaurant_items.xlsx', filename: 'restaurant_items.xlsx')
   end
 
   private

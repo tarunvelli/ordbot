@@ -1,8 +1,13 @@
 <div class="card shadow mb-4">
-  <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Restaurant Details</h6>
-  </div>
   <div class="card-body">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="restaurant-details-tab" data-toggle="tab" href="#restaurant-details" role="tab" aria-controls="restaurant-details" aria-selected="false">Restaurant Details</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+    <div class="tab-pane show active" id="restaurant-details" role="tabpanel" aria-labelledby="restaurant-details-tab">
+    <br/>
     <p class="mb-4">Add details about how to Twilio client id and secret, please visit the <a target="_blank" href="https://datatables.net">twilio link</a>.</p>
     <div class="row">
       <div class="col-lg-6">
@@ -61,6 +66,8 @@
 
         <% end %>
       </div>
+    </div>
+    </div>
     </div>
   </div>
 </div>

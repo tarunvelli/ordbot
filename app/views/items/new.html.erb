@@ -1,1 +1,33 @@
-<%= render 'form', restaurant: @restaurant, item: @item %>
+<p id="notice"><%= notice %></p>
+
+<div class="card shadow mb-4">
+  <div class="card-body">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="add-item-tab" data-toggle="tab" href="#add-item" role="tab" aria-controls="add-item" aria-selected="false">Add Item</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="bulk-add-items-tab" data-toggle="tab" href="#bulk-add-items" role="tab" aria-controls="bulk-add-items" aria-selected="false">Bulk Add Items</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <br/>
+        <%= link_to restaurant_items_path do %>
+          <i class="fa fa-arrow-circle-left"></i> Back
+        <% end %>
+      <div class="tab-pane show active" id="add-item" role="tabpanel" aria-labelledby="add-item-tab">
+        <%= render 'form', restaurant: @restaurant, item: @item %>
+      </div>
+      <div class="tab-pane" id="bulk-add-items" role="tabpanel" aria-labelledby="bulk-add-items-tab">
+        <br/>
+        <%= link_to "Download Sample File", sample_file_restaurant_items_path(@restaurant), method: 'post', class: 'btn btn-primary btn-sm' %>
+        <br/>
+        <br/>
+        <%= form_with url: parse_restaurant_items_path(@restaurant) do |f| %>
+          <%= f.file_field :uploaded_file %>
+          <%= f.submit 'Upload', class: 'btn btn-primary btn-sm mb-2' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

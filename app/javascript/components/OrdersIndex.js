@@ -35,7 +35,7 @@ class OrdersIndex extends React.Component {
   orderCard = (order) => {
     return (
       <div
-        className="shadow-sm card order-card"
+        className="shadow-sm card order-card shadow"
         key={order.id}
       >
         <div className="card-body">
@@ -43,19 +43,6 @@ class OrdersIndex extends React.Component {
           <h6>From : {order.from}</h6>
           <h6>Note : {order.note}</h6>
           <h6>Cost : {order.cost}</h6>
-        </div>
-        <div className='row navigation'>
-          <div className='col-sm-6'>
-            <button type="button" className="btn btn-danger btn-block">
-              <i className="fa fa-fw fa-backward"></i>
-            </button>
-          </div>
-
-          <div className='col-sm-6'>
-            <button type="button" className="btn btn-success btn-block">
-              <i className="fa fa-fw fa-forward"></i>
-            </button>
-          </div>
         </div>
       </div>
     );

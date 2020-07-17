@@ -8,7 +8,12 @@ Rails.application.routes.draw do
 
   resources :restaurants do
     resources :orders
-    resources :items
+    resources :items do
+      collection do
+        post 'parse'
+        post 'sample_file'
+      end
+    end
   end
 
   post 'restaurants/:restaurant_id/webhook', to: 'webhooks#receive', as: 'restaurant_webhook'

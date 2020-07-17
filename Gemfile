@@ -64,5 +64,6 @@ gem 'authority'
 gem 'devise'
 gem 'react-rails', '~> 2.6'
 gem 'rolify'
+gem "roo", "~> 2.8.0"
 gem 'omniauth-google-oauth2'
 gem 'twilio-ruby'
