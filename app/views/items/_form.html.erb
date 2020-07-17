@@ -5,6 +5,11 @@
   <div class="card-body">
     <div class="row">
       <div class="col-lg-6">
+        <%= link_to restaurant_items_path do %>
+          <i class="fa fa-arrow-circle-left"></i> Back
+        <% end %>
+        <br/>
+        <br/>
         <%= form_with(model: item, url: [restaurant, item], local: true) do |form| %>
           <% if item.errors.any? %>
             <div id="error_explanation">
