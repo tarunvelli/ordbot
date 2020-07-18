@@ -24,6 +24,7 @@ class OrdersIndex extends React.Component {
     super(props);
     this.state = {
       orders: this.props.orders,
+      loading: true,
     };
   }
 
@@ -36,9 +37,15 @@ class OrdersIndex extends React.Component {
       },
       {
         connected: () => {
-          console.log("connected!");
+          this.setState({
+            loading: false,
+          });
         },
-        disconnected: () => {},
+        disconnected: () => {
+          this.setState({
+            loading: true,
+          });
+        },
         received: (data) => {
           this.setState({
             orders: data,
@@ -121,14 +128,28 @@ class OrdersIndex extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <DragDropContext onDragEnd={this.onDragEnd}>
-          <div className="row">
-            {this.ordersColumn("Received")}
-            {this.ordersColumn("Preparing")}
-            {this.ordersColumn("Delivering")}
-            {this.ordersColumn("Delivered")}
-          </div>
-        </DragDropContext>
+        {
+          this.state.loading ?
+            <>
+              <div className="row d-flex justify-content-center">
+                <div className="spinner-border" role="status">
+                  <span className="sr-only">Loading...</span>
+                </div>
+              </div>
+              <div className="row d-flex justify-content-center">
+                Connecting...
+              </div>
+            </>
+          :
+            <DragDropContext onDragEnd={this.onDragEnd}>
+              <div className="row">
+                {this.ordersColumn("Received")}
+                {this.ordersColumn("Preparing")}
+                {this.ordersColumn("Delivering")}
+                {this.ordersColumn("Delivered")}
+              </div>
+            </DragDropContext>
+        }
       </React.Fragment>
     );
   }
