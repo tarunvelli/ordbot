@@ -1,15 +1,2 @@
-<div class="section-title">
-  <h2>Check our tasty <span>Menu</span></h2>
-</div>
-<div class="row">
-  <div class="col-lg-12 d-flex justify-content-center">
-    <ul id="menu-flters">
-      <li data-filter="*" class="filter-active">Show All</li>
-      <li data-filter=".filter-starters">Starters</li>
-      <li data-filter=".filter-salads">Salads</li>
-      <li data-filter=".filter-specialty">Specialty</li>
-    </ul>
-  </div>
-</div>
-
-<%= react_component("Menu", { items: @items, restaurant_name: @restaurant.name }) %>
+<%- items = @items.group_by { |item| item.category } %>
+<%= react_component("Menu", { items: items, restaurant_name: @restaurant.name }) %>

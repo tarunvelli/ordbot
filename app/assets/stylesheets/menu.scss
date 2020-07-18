@@ -172,6 +172,13 @@ section {
   color: #948c81;
 }
 
+.btn-group-thin .btn-toggle {
+  padding: 0rem 0.5rem !important;
+  color: #fff;
+  background-color: #ffb03b;
+  border-color: #ffb03b;
+}
+
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
@@ -334,7 +341,7 @@ section {
 #footer h3 {
   font-size: 36px;
   font-weight: 700;
-  color: #ffb03b;
+  color: #5f5950;
   position: relative;
   padding: 0;
   margin: 0 0 15px 0;
