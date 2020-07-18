@@ -8,6 +8,11 @@ class OrdersChannel < ApplicationCable::Channel
   end
 
   def receive(data)
-    Order.find(data['order_id']).update(state: data['state'])
+    begin
+      Order.find(data['order_id']).update(state: data['state'])
+    rescue
+      restaurant = Restaurant.find(data['restaurant_id'])
+      ActionCable.server.broadcast("orders_channel_#{restaurant.id}", restaurant.orders)
+    end
   end
 end
