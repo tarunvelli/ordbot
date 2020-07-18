@@ -10,15 +10,6 @@ const getListStyle = isDraggingOver => ({
   width: 250
 });
 
-// Moves an item from one list to another list.
-const move = (orders, draggableId, destination) => {
-  let order = orders.find(order => order.id == draggableId)
-
-  order.state = destination.droppableId
-
-  return orders;
-};
-
 class OrdersIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -87,10 +78,16 @@ class OrdersIndex extends React.Component {
           >
             <div className="shadow-sm card order-card shadow" key={order.id}>
               <div className="card-body">
-                <h5>Order Id : {order.id}</h5>
-                <h6>From : {order.from}</h6>
-                <h6>Note : {order.note}</h6>
+                {
+                  order.items.map(item => {
+                    return (
+                      <h5 key={item.id}><span className="badge badge-success"> {item.name} X {item.quantity} </span></h5>
+                    )
+                  })
+                }
                 <h6>Cost : {order.cost}</h6>
+                <p className="small text-gray-600">Note : {order.note}</p>
+                <sub>Order Id : {order.id}</sub>
               </div>
             </div>
           </div>

@@ -12,7 +12,7 @@ class OrdersChannel < ApplicationCable::Channel
       Order.find(data['order_id']).update(state: data['state'])
     rescue
       restaurant = Restaurant.find(data['restaurant_id'])
-      ActionCable.server.broadcast("orders_channel_#{restaurant.id}", restaurant.orders)
+      ActionCable.server.broadcast("orders_channel_#{restaurant.id}", restaurant.orders.map(&:order_details))
     end
   end
 end

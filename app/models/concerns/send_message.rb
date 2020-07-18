@@ -12,11 +12,11 @@ module SendMessage
 
       state_change = saved_change_to_state
       if state_change[0] == 'received' && state_change[1] == 'preparing'
-        message = "Order #{id} has been accepted and is being prepared!"
+        message = "Order ##{id} has been accepted and is being prepared!"
       elsif Order::PRE_DELIVERY_STATES.include?(state_change[0]) && state_change[1] == 'delivering'
-        message = "Order #{id} is out for delivery!"
+        message = "Order ##{id} is out for delivery!"
       elsif Order::PRE_DELIVERED_STATES.include?(state_change[0]) && state_change[1] == 'delivered'
-        message = "Order #{id} has been delivered, please enjoy your food!"
+        message = "Order ##{id} has been delivered, please enjoy your food!"
       end
 
       unless message.nil?

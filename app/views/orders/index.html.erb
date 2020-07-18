@@ -1,2 +1,4 @@
-<%= react_component("OrdersIndex", { orders: @orders, restaurant_id: @restaurant.id }) %>
+<%- orders = @orders.map(&:order_details) %>
+
+<%= react_component("OrdersIndex", { orders: orders, restaurant_id: @restaurant.id }) %>
 

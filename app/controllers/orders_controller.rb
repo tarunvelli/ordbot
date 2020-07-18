@@ -5,7 +5,7 @@ class OrdersController < PanelController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = @restaurant.orders
+    @orders = @restaurant.orders.includes(:order_items, :items)
   end
 
   # GET /orders/1
