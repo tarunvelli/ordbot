@@ -26,7 +26,43 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-dark.scrolled {
-  background-color: #211e19;
+  background-color: #5f5950;
+}
+
+/*--------------------------------------------------------------
+# Nav bar
+--------------------------------------------------------------*/
+
+.btn-outline-orange {
+  color: #ffb03b !important;
+  border-color: #ffb03b !important;
+}
+
+.btn-outline-orange:hover {
+  color: #fff;
+  background-color: #ffb03b;
+  border-color: #ffb03b;
+}
+
+.btn-outline-orange:focus, .btn-outline-orange.focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 176, 59, 0.5);
+}
+
+.btn-outline-orange.disabled, .btn-outline-orange:disabled {
+  color: #ffb03b;
+  background-color: transparent;
+}
+
+.btn-outline-orange:not(:disabled):not(.disabled):active, .btn-outline-orange:not(:disabled):not(.disabled).active,
+.show > .btn-outline-orange.dropdown-toggle {
+  color: #fff;
+  background-color: #ffb03b;
+  border-color: #ffb03b;
+}
+
+.btn-outline-orange:not(:disabled):not(.disabled):active:focus, .btn-outline-orange:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-orange.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 176, 59, 0.5);
 }
 
 /*--------------------------------------------------------------
@@ -108,7 +144,6 @@ section {
 }
 
 .menu #menu-flters li {
-  cursor: pointer;
   display: inline-block;
   padding: 8px 16px 10px 16px;
   font-size: 14px;
@@ -120,15 +155,6 @@ section {
   background: #fff;
   border: 2px solid #ffb03b;
   border-radius: 50px;
-}
-
-.menu #menu-flters li:hover, .menu #menu-flters li.filter-active {
-  color: #fff;
-  background: #ffb03b;
-}
-
-.menu #menu-flters li:last-child {
-  margin-right: 0;
 }
 
 .menu .menu-content {

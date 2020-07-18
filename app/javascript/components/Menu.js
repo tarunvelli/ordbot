@@ -1,5 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Footer } from "./menu/footer.js"
+import CartButtons from "./menu/cart_buttons.js"
 
 const actioncable = require("actioncable")
 
@@ -20,21 +22,7 @@ class OrdersIndex extends React.Component {
         </div>
         <div className="menu-ingredients">{item.description}</div>
         <div className="d-flex flex-row-reverse">
-          <div
-            className="btn-group btn-group-thin btn-group-sm mt-2"
-            role="group"
-            aria-label="Small button group"
-          >
-            <button type="button" className="btn btn-toggle">
-              -
-            </button>
-            <button type="button" className="btn btn-light" disabled>
-              0
-            </button>
-            <button type="button" className="btn btn-toggle">
-              +
-            </button>
-          </div>
+          <CartButtons/>
         </div>
       </div>
     );
@@ -60,22 +48,20 @@ class OrdersIndex extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <nav className="d-flex navbar flex-row-reverse navbar-expand-md navbar-dark fixed-top">
-          <form className="form-inline mt-2 mt-md-0">
-            <button
-              className="btn btn-outline-success my-2 my-sm-0"
-              type="submit"
-            >
-              Checkout <i class="fa fa-shopping-cart"></i>
-            </button>
-          </form>
+        <nav className="d-flex justify-content-end navbar navbar-expand-md navbar-dark fixed-top">
+          <button
+            className="btn btn-outline-orange my-2 my-sm-0"
+            type="submit"
+          >
+            Checkout <i className="fa fa-shopping-cart"></i>
+          </button>
         </nav>
         <main id="main">
           <section id="menu" className="menu">
             <div className="container">
               <div className="section-title">
                 <h2>
-                  Check our tasty <span>Menu</span>
+                  Menu
                 </h2>
               </div>
               {Object.entries(this.props.items).map((itemCategory) =>
@@ -84,19 +70,7 @@ class OrdersIndex extends React.Component {
             </div>
           </section>
         </main>
-        <footer id="footer">
-          <div className="container">
-            <h3> {this.props.restaurant_name} </h3>
-            <div className="credits">
-              All the links in the footer should remain intact. You can delete
-              the links only if you purchased the pro version. Licensing
-              information: https://bootstrapmade.com/license/ Purchase the pro
-              version with working PHP/AJAX contact form:
-              https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
-              Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div>
-          </div>
-        </footer>
+        <Footer restaurantName={this.props.restaurant_name} />
       </React.Fragment>
     );
   }
