@@ -6,9 +6,17 @@ class WebhooksController < ActionController::Base
 
   # post /webhooks
   def receive
+    params.permit!
     @restaurant = Restaurant.find(params['restaurant_id'])
-    response = receive_message(params)
+    validator = Twilio::Security::RequestValidator.new(@restaurant.auth_token)
 
-    render xml: response
+    url = request.url
+    twilio_signature = request.headers['X-Twilio-Signature']
+    twilio_params = request.params.except(:action, :controller, :restaurant_id)
+
+    if validator.validate(url, twilio_params, twilio_signature)
+      response = receive_message(params)
+      render xml: response
+    end
   end
 end
