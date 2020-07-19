@@ -28,4 +28,24 @@ module SendMessage
       end
     end
   end
+
+  def send_confirmation_request
+    @restaurant = restaurant
+    @client = Twilio::REST::Client.new(
+      @restaurant.account_sid, @restaurant.auth_token
+    )
+
+    message = "To confirm your order please reply 'confirm ##{id}'\n\n"
+    message += "Your order details are:\n"
+    items_details.each do |order_item|
+      message += "#{order_item[:name]} x #{order_item[:quantity]}\n"
+    end
+    message += "Cost : ₹ #{cost}"
+
+    @client.messages.create(
+      from: 'whatsapp:+14155238886',
+      body: message,
+      to: "whatsapp:#{from}"
+    )
+  end
 end

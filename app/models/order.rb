@@ -6,6 +6,7 @@ class Order < ApplicationRecord
   has_many :items, through: :order_items
 
   before_validation :calculate_cost
+  after_create :send_confirmation_request
   after_update :send_message
   after_save :broadcast_orders_channel
 

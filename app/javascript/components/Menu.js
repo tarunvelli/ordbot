@@ -10,7 +10,7 @@ class OrdersIndex extends React.Component {
     super(props);
     this.state = {
       cart: {},
-      from: null,
+      from: props.from,
       address: null,
       note: null
     };
@@ -19,15 +19,6 @@ class OrdersIndex extends React.Component {
       return acc;
     }, {})
     this.handleStateChange = this.setState.bind(this)
-  }
-
-  resetState = () => {
-    this.setState({
-      cart: {},
-      from: '',
-      address: '',
-      note: ''
-    })
   }
 
   lineItem = (item) => {
@@ -72,10 +63,6 @@ class OrdersIndex extends React.Component {
 
   updateNote = (e) => {
     this.setState({ note: e.target.value });
-  }
-
-  reloadPage = () => {
-    location.reload();
   }
 
   createOrder = () => {
@@ -137,9 +124,7 @@ class OrdersIndex extends React.Component {
             </div>
             <div className="modal-body">
               <h1> Order #{ this.state.orderId } has been received!</h1>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-outline-orange" data-dismiss="modal" onClick={ this.reloadPage }>Close</button>
+              <p> You will receive a confirmation message shortly, please close this page and reply to the message to confirm your order</p>
             </div>
           </div>
         </div>
@@ -166,7 +151,12 @@ class OrdersIndex extends React.Component {
               </table>
               <div className="form-group">
                 <label htmlFor="recipient-name" className="col-form-label">Number:</label>
-                <input type="text" className="form-control form-control-sm" id="recipient-name" onChange={ this.updatePhone }/>
+                {
+                  this.state.from ?
+                    <input type="text" className="form-control form-control-sm" value={this.state.from} disabled/>
+                    :
+                    <input type="text" className="form-control form-control-sm" onChange={ this.updatePhone }/>
+                }
               </div>
               <div className="form-group">
                 <label htmlFor="message-text" className="col-form-label">Address:</label>

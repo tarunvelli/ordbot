@@ -29,7 +29,6 @@ class OrdersController < PanelController
   def create
     @restaurant = Restaurant.find(params['restaurant_id'])
     @order = @restaurant.orders.new(order_params)
-    @order.state = 'received'
     params['cart'].permit!
     params['cart'].to_h.each do |item_id, quantity|
       @order.order_items.new(item_id: item_id, quantity: quantity)
