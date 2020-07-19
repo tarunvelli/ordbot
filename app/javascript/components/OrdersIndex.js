@@ -81,11 +81,11 @@ class OrdersIndex extends React.Component {
                 {
                   order.items.map(item => {
                     return (
-                      <h5 key={item.id}><span className="badge badge-success"> {item.name} X {item.quantity} </span></h5>
+                      <h6 key={item.id}><span className="badge badge-success"> {item.name} X {item.quantity} </span></h6>
                     )
                   })
                 }
-                <h6>Cost : {order.cost}</h6>
+                <h6>Cost : ₹ {order.cost}</h6>
                 <p className="small text-gray-600">Note : {order.note}</p>
                 <sub>Order Id : {order.id}</sub>
               </div>

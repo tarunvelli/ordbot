@@ -19,6 +19,7 @@ class Order < ApplicationRecord
       created_at: created_at,
       cost: cost,
       note: note,
+      address: address,
       items: items_details
     }
   end

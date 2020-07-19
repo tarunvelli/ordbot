@@ -6,6 +6,7 @@ class WebhooksController < ActionController::Base
 
   # post /webhooks
   def receive
+    @restaurant = Restaurant.find(params['restaurant_id'])
     response = receive_message(params)
 
     render xml: response

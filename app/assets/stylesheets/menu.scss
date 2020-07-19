@@ -33,36 +33,25 @@ h1, h2, h3, h4, h5, h6 {
 # Nav bar
 --------------------------------------------------------------*/
 
-.btn-outline-orange {
-  color: #ffb03b !important;
-  border-color: #ffb03b !important;
-}
-
-.btn-outline-orange:hover {
+.badge-orange {
   color: #fff;
   background-color: #ffb03b;
-  border-color: #ffb03b;
 }
 
-.btn-outline-orange:focus, .btn-outline-orange.focus {
-  box-shadow: 0 0 0 0.2rem rgba(255, 176, 59, 0.5);
-}
-
-.btn-outline-orange.disabled, .btn-outline-orange:disabled {
+button.btn-outline-orange {
+  border-radius: 50px;
   color: #ffb03b;
-  background-color: transparent;
-}
-
-.btn-outline-orange:not(:disabled):not(.disabled):active, .btn-outline-orange:not(:disabled):not(.disabled).active,
-.show > .btn-outline-orange.dropdown-toggle {
-  color: #fff;
-  background-color: #ffb03b;
   border-color: #ffb03b;
 }
 
-.btn-outline-orange:not(:disabled):not(.disabled):active:focus, .btn-outline-orange:not(:disabled):not(.disabled).active:focus,
-.show > .btn-outline-orange.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(255, 176, 59, 0.5);
+button.btn-outline-secondary {
+  border-radius: 50px;
+}
+
+button.btn-outline-orange:hover {
+  color: #fff;
+  background-color: #ffb03b;
+  border-color: #ffb03b;
 }
 
 /*--------------------------------------------------------------

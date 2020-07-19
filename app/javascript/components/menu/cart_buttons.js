@@ -9,17 +9,26 @@ export default class CartButtons extends React.Component {
     };
   }
 
+  updateCartCount = () => {
+    let count = this.state.counter
+    let itemId = this.props.id
+    this.props.handleStateChange((state, props) => {
+      state.cart[itemId] = count;
+      return { cart: state.cart }
+    })
+  }
+
   increment = () => {
-    this.setState((state, props) => ({
-      counter: state.counter + 1
-    }));
+    this.setState((state, props) => {
+      return { counter: state.counter + 1 }
+    }, this.updateCartCount);
   }
 
   dencrement = () => {
     if (this.state.counter > 0) {
-      this.setState((state, props) => ({
-        counter: state.counter - 1
-      }));
+      this.setState((state, props) => {
+        return { counter: state.counter - 1 }
+      }, this.updateCartCount);
     }
   }
 

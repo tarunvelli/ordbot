@@ -1,2 +1,3 @@
 <%- items = @items.group_by { |item| item.category } %>
-<%= react_component("Menu", { items: items, restaurant_name: @restaurant.name }) %>
+<%- restaurant_orders_path = restaurant_orders_url(@restaurant) %>
+<%= react_component("Menu", { items: items, restaurant_name: @restaurant.name, restaurant_orders_url: restaurant_orders_url }) %>

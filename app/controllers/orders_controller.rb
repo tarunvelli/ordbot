@@ -2,6 +2,8 @@ class OrdersController < PanelController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :set_restaurant, only: [:index]
 
+  skip_before_action :authenticate_user!, only: %i[create]
+  skip_before_action :set_restaurants, only: %i[create]
   # GET /orders
   # GET /orders.json
   def index
@@ -25,12 +27,18 @@ class OrdersController < PanelController
   # POST /orders
   # POST /orders.json
   def create
-    @order = current_user.orders.new(order_params)
+    @restaurant = Restaurant.find(params['restaurant_id'])
+    @order = @restaurant.orders.new(order_params)
+    @order.state = 'received'
+    params['cart'].permit!
+    params['cart'].to_h.each do |item_id, quantity|
+      @order.order_items.new(item_id: item_id, quantity: quantity)
+    end
 
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
-        format.json { render :show, status: :created, location: @order }
+        format.json { render json: { order_id: @order.id }, status: :ok }
       else
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
@@ -74,6 +82,6 @@ class OrdersController < PanelController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:from, :note, :cost)
+      params.require(:order).permit(:from, :note, :address, :cart)
     end
 end

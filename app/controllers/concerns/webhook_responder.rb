@@ -5,8 +5,6 @@ module WebhookResponder
 
   def receive_message(params)
     case params['Body']
-    when 'menu', 'Menu'
-      menu_response
     when /add/
       order_response(params)
     else
@@ -17,16 +15,9 @@ module WebhookResponder
   private
 
   def default_response
+    url = restaurant_menu_url(@restaurant)
     twiml = Twilio::TwiML::MessagingResponse.new do |r|
-      r.message(body: 'Default response')
-    end
-
-    twiml.to_s
-  end
-
-  def menu_response
-    twiml = Twilio::TwiML::MessagingResponse.new do |r|
-      r.message(body: "Menu:\n1. something\n2. something")
+      r.message(body: "Please use the following the link to place your order #{url}")
     end
 
     twiml.to_s
