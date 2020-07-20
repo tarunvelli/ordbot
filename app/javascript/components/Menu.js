@@ -1,7 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Footer } from "./menu/footer.js"
-import CartButtons from "./menu/cart_buttons.js"
+import Footer from "./menu/footer.js"
+import MenuCategories from "./menu/menu_categories.js"
+import OrderReceivedNotice from "./menu/order_received_notice.js"
 
 const actioncable = require("actioncable")
 
@@ -20,38 +21,6 @@ class OrdersIndex extends React.Component {
     }, {})
     this.handleStateChange = this.setState.bind(this)
   }
-
-  lineItem = (item) => {
-    return (
-      <div key={item.id} className="col-lg-6 menu-item filter-starters">
-        <div className="menu-content">
-          <span>{item.name}</span>
-          <span>₹ {item.cost}</span>
-        </div>
-        <div className="menu-ingredients">{item.description}</div>
-        <div className="d-flex flex-row-reverse">
-          <CartButtons id={item.id} handleStateChange={this.handleStateChange} />
-        </div>
-      </div>
-    );
-  };
-
-  menuCategory = (category, categoryItems) => {
-    let items = categoryItems.map((item) => this.lineItem(item));
-
-    return (
-      <div className="mb-5">
-        <div className="row">
-          <div className="col-lg-12 d-flex justify-content-center">
-            <ul id="menu-flters">
-              <li className="filter">{category}</li>
-            </ul>
-          </div>
-        </div>
-        <div className="row menu-container"> {items} </div>
-      </div>
-    );
-  };
 
   updatePhone = (e) => {
     this.setState({ from: e.target.value });
@@ -78,7 +47,11 @@ class OrdersIndex extends React.Component {
       body: JSON.stringify(this.state),
       credentials: 'same-origin'
     }).then(response => {
-      return response.json()
+      if (response.ok) {
+        return response.json()
+      } else {
+        throw response
+      }
     }).then(data => {
       this.setState({
         orderId: data.order_id
@@ -87,7 +60,19 @@ class OrdersIndex extends React.Component {
         $("#orderReceivedModal").modal('show')
         this.resetState()
       })
+    }).catch(e => {
+      console.log(e)
     })
+  }
+
+  cartCount = () => {
+    let cart = this.state.cart
+    if (Object.keys(cart).length === 0) {
+      return null
+    } else {
+      let count = Object.values(cart).reduce((acc, val) => acc + val)
+      return count > 0 ? count : null
+    }
   }
 
   cartContents = () => {
@@ -114,24 +99,6 @@ class OrdersIndex extends React.Component {
     return(<>{contents}</>)
   }
 
-  orderReceivedNotice = () => {
-    return(
-      <div className="modal fade" id="orderReceivedModal" tabIndex="-1" role="dialog" aria-labelledby="orderReceivedModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
-        <div className="modal-dialog modal-dialog-centered" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="orderReceivedModalLabel">Order Received!</h5>
-            </div>
-            <div className="modal-body">
-              <h1> Order #{ this.state.orderId } has been received!</h1>
-              <p> You will receive a confirmation message shortly, please close this page and reply to the message to confirm your order</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
   checkoutModal = () => {
     return(
       <div className="modal fade" id="checkoutModal" tabIndex="-1" role="dialog" aria-labelledby="checkoutModalLabel" aria-hidden="true">
@@ -150,41 +117,31 @@ class OrdersIndex extends React.Component {
                 </tbody>
               </table>
               <div className="form-group">
-                <label htmlFor="recipient-name" className="col-form-label">Number:</label>
+                <label htmlFor="order-from" className="col-form-label">Number:</label>
                 {
                   this.state.from ?
-                    <input type="text" className="form-control form-control-sm" value={this.state.from} disabled/>
+                    <input type="text" className="form-control form-control-sm" id="order-from" value={this.state.from} disabled/>
                     :
-                    <input type="text" className="form-control form-control-sm" onChange={ this.updatePhone }/>
+                    <input type="text" className="form-control form-control-sm" id="order-from" onChange={ this.updatePhone }/>
                 }
               </div>
               <div className="form-group">
-                <label htmlFor="message-text" className="col-form-label">Address:</label>
-                <textarea className="form-control form-control-sm" id="message-text" onChange={ this.updateAddress }/>
+                <label htmlFor="order-address" className="col-form-label">Address:</label>
+                <textarea className="form-control form-control-sm" id="order-address" onChange={ this.updateAddress }/>
               </div>
               <div className="form-group">
-                <label htmlFor="message-text" className="col-form-label">Note:</label>
-                <textarea className="form-control form-control-sm" id="message-text" onChange={ this.updateNote }/>
+                <label htmlFor="order-note" className="col-form-label">Note:</label>
+                <textarea className="form-control form-control-sm" id="order-note" onChange={ this.updateNote }/>
               </div>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-outline-orange" onClick={ this.createOrder }>Submit</button>
+              <button type="button" id="submit-order-button" className="btn btn-outline-orange" onClick={ this.createOrder }>Submit</button>
             </div>
           </div>
         </div>
       </div>
     )
-  }
-
-  cartCount = () => {
-    let cart = this.state.cart
-    if (Object.keys(cart).length === 0) {
-      return null
-    } else {
-      let count = Object.values(cart).reduce((acc, val) => acc + val)
-      return count > 0 ? count : null
-    }
   }
 
   render() {
@@ -207,14 +164,12 @@ class OrdersIndex extends React.Component {
                   Menu
                 </h2>
               </div>
-              {Object.entries(this.props.items).map((itemCategory) =>
-                this.menuCategory(itemCategory[0], itemCategory[1])
-              )}
+              <MenuCategories itemsDetails={this.props.items} handleStateChange={this.handleStateChange} />
             </div>
           </section>
         </main>
         { this.checkoutModal() }
-        { this.orderReceivedNotice() }
+        <OrderReceivedNotice orderId={this.state.orderId}/>
         <Footer restaurantName={this.props.restaurant_name} />
       </React.Fragment>
     );

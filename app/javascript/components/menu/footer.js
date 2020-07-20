@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-export const Footer = (props) => {
+const Footer = (props) => {
   return (
     <footer id="footer">
       <div className="container">
@@ -18,3 +18,5 @@ export const Footer = (props) => {
     </footer>
   );
 };
+
+export default Footer;

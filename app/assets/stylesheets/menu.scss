@@ -54,6 +54,21 @@ button.btn-outline-orange:hover {
   border-color: #ffb03b;
 }
 
+button.btn-outline-orange.disabled, button.btn-outline-orange:disabled {
+  color: #ffb03b;
+  background-color: transparent;
+}
+
+button.btn-outline-orange:not(:disabled):not(.disabled):active, button.btn-outline-orange:not(:disabled):not(.disabled).active {
+  color: #fff;
+  background-color: #ffb03b;
+  border-color: #ffb03b;
+}
+
+button.btn-outline-orange:not(:disabled):not(.disabled):active:focus, button.btn-outline-orange:not(:disabled):not(.disabled).active:focus {
+  box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.5);
+}
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/

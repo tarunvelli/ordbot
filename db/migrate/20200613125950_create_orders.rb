@@ -5,6 +5,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.text :note
       t.float :cost
       t.string :state
+      t.text :address
 
       t.timestamps
     end

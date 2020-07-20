@@ -5,6 +5,8 @@ class Order < ApplicationRecord
   has_many :order_items
   has_many :items, through: :order_items
 
+  validates :from, :address, presence: true
+
   before_validation :calculate_cost
   after_create :send_confirmation_request
   after_update :send_message
