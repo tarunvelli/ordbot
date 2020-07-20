@@ -99,6 +99,14 @@ class OrdersIndex extends React.Component {
     return(<>{contents}</>)
   }
 
+  submitButton = () => {
+    if (this.state.from && this.state.address && this.cartCount()) {
+      return <button type="button" id="submit-order-button" className="btn btn-outline-orange" onClick={ this.createOrder }>Submit</button>
+    } else {
+      return <button type="button" id="submit-order-button" className="btn btn-outline-orange" disabled >Submit</button>
+    }
+  }
+
   checkoutModal = () => {
     return(
       <div className="modal fade" id="checkoutModal" tabIndex="-1" role="dialog" aria-labelledby="checkoutModalLabel" aria-hidden="true">
@@ -119,7 +127,7 @@ class OrdersIndex extends React.Component {
               <div className="form-group">
                 <label htmlFor="order-from" className="col-form-label">Number:</label>
                 {
-                  this.state.from ?
+                  this.props.from ?
                     <input type="text" className="form-control form-control-sm" id="order-from" value={this.state.from} disabled/>
                     :
                     <input type="text" className="form-control form-control-sm" id="order-from" onChange={ this.updatePhone }/>
@@ -136,7 +144,7 @@ class OrdersIndex extends React.Component {
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-              <button type="button" id="submit-order-button" className="btn btn-outline-orange" onClick={ this.createOrder }>Submit</button>
+              { this.submitButton() }
             </div>
           </div>
         </div>
