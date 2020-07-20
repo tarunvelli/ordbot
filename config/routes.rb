@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   root :to => "landingpage#index"
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    confirmations: 'users/confirmations',
+    registrations: 'users/registrations'
+  }
 
   resources :restaurants do
     resources :orders
