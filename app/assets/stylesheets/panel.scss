@@ -9418,6 +9418,11 @@ a.text-light:hover, a.text-light:focus {
   color: #c2cbe5 !important;
 }
 
+.text-logo > a, .text-logo > a:hover {
+  color: #222222;
+  text-decoration: none;
+}
+
 .text-dark {
   color: #5a5c69 !important;
 }
