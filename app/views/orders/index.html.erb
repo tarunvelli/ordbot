@@ -1,4 +1,5 @@
 <%- orders = @orders.map(&:order_details) %>
+<%- ws_base_url = root_url.sub (/https|http/), 'ws' %>
 
-<%= react_component("OrdersIndex", { orders: orders, restaurant_id: @restaurant.id }) %>
+<%= react_component("OrdersIndex", { orders: orders, restaurant_id: @restaurant.id, ws_base_url: ws_base_url }) %>
 

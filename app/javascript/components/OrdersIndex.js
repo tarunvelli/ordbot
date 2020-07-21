@@ -20,7 +20,7 @@ class OrdersIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.cable = actioncable.createConsumer("ws://localhost:3000/cable");
+    this.cable = actioncable.createConsumer(`${this.props.ws_base_url}/cable`);
     this.orderChannel = this.cable.subscriptions.create(
       {
         channel: `OrdersChannel`,
