@@ -196,6 +196,7 @@ GEM
       execjs
       railties (>= 3.2)
       tilt
+    redis (4.2.1)
     regexp_parser (1.7.1)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -282,6 +283,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.1)
   react-rails (~> 2.6)
+  redis (~> 4.0)
   rolify
   roo (~> 2.8.0)
   sass-rails (>= 6)
