@@ -2,7 +2,7 @@ class MenuController < ActionController::Base
   before_action :set_restaurant
 
   def show
-    @from = params['u']
+    @from = params['u']&.decrypt
     @items = @restaurant.items
   end
 

@@ -36,7 +36,7 @@ module WebhookResponder
 
   def default_response
     from = params['From'].gsub('whatsapp:', '')
-    url = restaurant_menu_url(@restaurant, u: from)
+    url = restaurant_menu_url(@restaurant, u: from.encrypt)
     twiml = Twilio::TwiML::MessagingResponse.new do |r|
       r.message(body: "Please use the following the link to place your order #{url}")
     end

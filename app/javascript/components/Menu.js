@@ -128,9 +128,9 @@ class OrdersIndex extends React.Component {
                 <label htmlFor="order-from" className="col-form-label">Number:</label>
                 {
                   this.props.from ?
-                    <input type="text" className="form-control form-control-sm" id="order-from" value={this.state.from} disabled/>
+                    <input type="password" className="form-control form-control-sm" id="order-from" value={this.state.from} disabled/>
                     :
-                    <input type="text" className="form-control form-control-sm" id="order-from" onChange={ this.updatePhone }/>
+                    <input type="password" className="form-control form-control-sm" id="order-from" onChange={ this.updatePhone }/>
                 }
               </div>
               <div className="form-group">
