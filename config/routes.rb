@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # change this
-  default_url_options :host => "app.com"
+  default_url_options :host => "ordbot.io"
 
   root :to => "landingpage#index"
 
