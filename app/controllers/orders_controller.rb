@@ -1,6 +1,7 @@
 class OrdersController < PanelController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
-  before_action :set_restaurant, only: [:index]
+  before_action :set_order, only: %i[show edit update destroy]
+  before_action :set_restaurant, only: %i[index create]
+  before_action :set_new_order, only: %i[create]
 
   skip_before_action :authenticate_user!, only: %i[create]
   skip_before_action :set_restaurants, only: %i[create]
@@ -12,8 +13,7 @@ class OrdersController < PanelController
 
   # GET /orders/1
   # GET /orders/1.json
-  def show
-  end
+  def show; end
 
   # GET /orders/new
   def new
@@ -21,19 +21,11 @@ class OrdersController < PanelController
   end
 
   # GET /orders/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /orders
   # POST /orders.json
   def create
-    @restaurant = Restaurant.find(params['restaurant_id'])
-    @order = @restaurant.orders.new(order_params)
-    params['cart'].permit!
-    params['cart'].to_h.each do |item_id, quantity|
-      @order.order_items.new(item_id: item_id, quantity: quantity)
-    end
-
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
@@ -70,17 +62,26 @@ class OrdersController < PanelController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_order
-      @order = Order.find(params[:id])
-    end
 
-    def set_restaurant
-      @restaurant = Restaurant.find(params[:restaurant_id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_order
+    @order = Order.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def order_params
-      params.require(:order).permit(:from, :note, :address, :cart)
+  def set_new_order
+    @order = @restaurant.orders.new(order_params)
+    params['cart'].permit!
+    params['cart'].to_h.each do |item_id, quantity|
+      @order.order_items.new(item_id: item_id, quantity: quantity)
     end
+  end
+
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:restaurant_id] || params['restaurant_id'])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def order_params
+    params.require(:order).permit(:from, :note, :address, :cart)
+  end
 end

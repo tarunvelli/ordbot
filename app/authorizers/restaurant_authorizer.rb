@@ -1,5 +1,5 @@
 class RestaurantAuthorizer < ApplicationAuthorizer
-  def creatable_by?(user)
+  def creatable_by?(_user)
     # think of some fancy check
     true
   end
@@ -9,10 +9,10 @@ class RestaurantAuthorizer < ApplicationAuthorizer
   end
 
   def updatable_by?(user)
-    resource.users.include? user && user.has_role?(:admin)
+    resource.users.include?(user) && user.has_role?(:admin)
   end
 
   def deletable_by?(user)
-    resource.users.include? user && user.has_role?(:admin)
+    resource.users.include?(user) && user.has_role?(:admin)
   end
 end

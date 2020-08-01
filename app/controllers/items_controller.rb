@@ -1,8 +1,9 @@
 class ItemsController < PanelController
   include ParseFile
 
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: %i[show edit update destroy]
   before_action :set_restaurant
+  before_action :set_new_item, only: %i[create]
 
   # GET /items
   # GET /items.json
@@ -12,8 +13,7 @@ class ItemsController < PanelController
 
   # GET /items/1
   # GET /items/1.json
-  def show
-  end
+  def show; end
 
   # GET /items/new
   def new
@@ -21,14 +21,11 @@ class ItemsController < PanelController
   end
 
   # GET /items/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /items
   # POST /items.json
   def create
-    @item = @restaurant.items.new(item_params)
-
     respond_to do |format|
       if @item.save
         format.html { redirect_to restaurant_items_url(@restaurant), notice: 'Item was successfully created.' }
@@ -68,10 +65,10 @@ class ItemsController < PanelController
     @new_items = create_items_from_file(params[:uploaded_file])
 
     respond_to do |format|
-      unless @new_items.any? { |item| item.errors.any? }
-        format.html { redirect_to restaurant_items_url(@restaurant), notice: 'Item was successfully created.' }
-      else
+      if @new_items.any? { |item| item.errors.any? }
         format.html { render :new }
+      else
+        format.html { redirect_to restaurant_items_url(@restaurant), notice: 'Item was successfully created.' }
       end
     end
   end
@@ -81,17 +78,22 @@ class ItemsController < PanelController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_item
-      @item = Item.find(params[:id])
-    end
 
-    def set_restaurant
-      @restaurant = Restaurant.find(params[:restaurant_id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def item_params
-      params.require(:item).permit(:name, :cost, :category, :description)
-    end
+  def set_new_item
+    @item = @restaurant.items.new(item_params)
+  end
+
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:restaurant_id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def item_params
+    params.require(:item).permit(:name, :cost, :category, :description)
+  end
 end

@@ -1,5 +1,6 @@
 class RestaurantsController < PanelController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: %i[show edit update destroy]
+  before_action :set_new_restaurant, only: %i[create]
 
   # GET /restaurants
   # GET /restaurants.json
@@ -9,8 +10,7 @@ class RestaurantsController < PanelController
 
   # GET /restaurants/1
   # GET /restaurants/1.json
-  def show
-  end
+  def show; end
 
   # GET /restaurants/new
   def new
@@ -18,18 +18,15 @@ class RestaurantsController < PanelController
   end
 
   # GET /restaurants/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /restaurants
   # POST /restaurants.json
   def create
-    @restaurant = Restaurant.new(restaurant_params)
-    @restaurant.users << current_user
-
     respond_to do |format|
       if @restaurant.save
-        format.html { redirect_to edit_restaurant_path(@restaurant), notice: 'Restaurant was successfully created. Please paste the Webhook url in Twilio.' }
+        notice = 'Restaurant was successfully created. Please paste the Webhook url in Twilio.'
+        format.html { redirect_to edit_restaurant_path(@restaurant), notice: notice }
         format.json { render :show, status: :created, location: @restaurant }
       else
         format.html { render :new }
@@ -63,13 +60,19 @@ class RestaurantsController < PanelController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_restaurant
-      @restaurant = Restaurant.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def restaurant_params
-      params.require(:restaurant).permit(:name, :address, :account_sid, :auth_token)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:id])
+  end
+
+  def set_new_restaurant
+    @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.users << current_user
+  end
+
+  # Only allow a list of trusted parameters through.
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :address, :account_sid, :auth_token)
+  end
 end

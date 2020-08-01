@@ -9,10 +9,10 @@ class Order < ApplicationRecord
 
   before_validation :calculate_cost
   after_create :send_confirmation_request
-  after_update :send_message
+  after_update :send_order_update, if: :saved_change_to_state?
   after_save :broadcast_orders_channel
 
-  PRE_DELIVERY_STATES = ['received', 'preparing']
+  PRE_DELIVERY_STATES = %w[received preparing].freeze
   PRE_DELIVERED_STATES = PRE_DELIVERY_STATES + ['delivering']
 
   def order_details
@@ -38,6 +38,7 @@ class Order < ApplicationRecord
   end
 
   private
+
   def broadcast_orders_channel
     ActionCable.server.broadcast("orders_channel_#{restaurant.id}", restaurant.orders.map(&:order_details))
   end
@@ -47,6 +48,6 @@ class Order < ApplicationRecord
     order_items.each do |order_item|
       total_cost += order_item.quantity * order_item.item.cost
     end
-    self.assign_attributes(cost: total_cost)
+    assign_attributes(cost: total_cost)
   end
 end

@@ -5,8 +5,8 @@ module ParseFile
 
   def create_items_from_file(file_data)
     xlsx = Roo::Spreadsheet.open(file_data.path)
-    rows = xlsx&.parse(headers: true)&.map{ |r| r.transform_keys(&:downcase) } || []
-    rows = rows.reject.each_with_index{ |r, index| index.zero? }
+    rows = xlsx&.parse(headers: true)&.map { |r| r.transform_keys(&:downcase) } || []
+    rows = rows.reject.each_with_index { |_r, index| index.zero? }
     @restaurant.items.create(rows)
   end
 end

@@ -12,6 +12,7 @@ class Restaurant < ApplicationRecord
   validates :name, :account_sid, :auth_token, presence: true
 
   private
+
   def account_sid_encryption_key
     # do some fancy logic and returns an encryption key?
     ENV['ACCOUNT_SID_ENCRYPTION_KEY']

@@ -21,17 +21,17 @@ module WebhookResponder
     message = params['Body']
 
     id = /(\d+)/.match(message)&.captures&.first
-    unless id.nil?
-      order = Order.where(id: id, from: from).first
-      if order
-        order.update(state: 'received')
-        twiml = Twilio::TwiML::MessagingResponse.new do |r|
-          r.message(body: "Order ##{order.id} has been confirmed. Waiting for restaurant to accept order.")
-        end
+    return if id.nil?
 
-        twiml.to_s
-      end
+    order = Order.where(id: id, from: from).first
+    return unless order
+
+    order.update(state: 'received')
+    twiml = Twilio::TwiML::MessagingResponse.new do |r|
+      r.message(body: "Order ##{order.id} has been confirmed. Waiting for restaurant to accept order.")
     end
+
+    twiml.to_s
   end
 
   def default_response
