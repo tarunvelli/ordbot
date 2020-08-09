@@ -12,6 +12,15 @@
   margin-right: 1em;
 }
 
+.nav_anchor::before {
+  display: block;
+  content: " ";
+  margin-top: -254px;
+  height: 285px;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
