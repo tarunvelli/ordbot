@@ -10,7 +10,9 @@ class RestaurantsController < PanelController
 
   # GET /restaurants/1
   # GET /restaurants/1.json
-  def show; end
+  def show
+    @orders = @restaurant.orders
+  end
 
   # GET /restaurants/new
   def new

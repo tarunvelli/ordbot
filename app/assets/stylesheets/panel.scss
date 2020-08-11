@@ -243,6 +243,10 @@ a:focus {
   color: #3a3b45 !important;
 }
 
+.text-xs {
+  font-size: .7rem;
+}
+
 .rotate-n-15 {
   transform: rotate(-15deg);
 }
@@ -819,3 +823,16 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+
+.border-left-primary {
+  border-left: 0.25rem solid #4e73df !important;
+}
+
+.border-left-success {
+  border-left: 0.25rem solid #1cc88a !important;
+}
+
+.border-left-warning {
+  border-left: 0.25rem solid #f6c23e !important;
+}
+
