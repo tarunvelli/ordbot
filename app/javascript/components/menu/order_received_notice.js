@@ -2,6 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 
 const OrderReceivedNotice = (props) => {
+  let phone = encodeURIComponent(`${props.phoneNumber}`)
+  let text = encodeURIComponent(`confirm #${props.orderId}`)
+
   return(
     <div className="modal fade" id="orderReceivedModal" tabIndex="-1" role="dialog" aria-labelledby="orderReceivedModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
       <div className="modal-dialog modal-dialog-centered" role="document">
@@ -10,8 +13,11 @@ const OrderReceivedNotice = (props) => {
             <h5 className="modal-title" id="orderReceivedModalLabel">Order Received!</h5>
           </div>
           <div className="modal-body">
-            <h1> Order #{ props.orderId } has been received!</h1>
-            <p> You will receive a confirmation message shortly, please close this page and reply to the message to confirm your order</p>
+            <h1> Your order number is #{ props.orderId }</h1>
+            <span> Confirm your order by clicking the following button </span>
+            <br/>
+            <br/>
+            <a class='btn btn-primary' href={`https://api.whatsapp.com/send?phone=${phone}&text=${text}`} > Confirm </a>
           </div>
         </div>
       </div>

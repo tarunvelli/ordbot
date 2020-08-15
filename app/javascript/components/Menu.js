@@ -177,7 +177,7 @@ class OrdersIndex extends React.Component {
           </section>
         </main>
         { this.checkoutModal() }
-        <OrderReceivedNotice orderId={this.state.orderId}/>
+        <OrderReceivedNotice orderId={this.state.orderId} phoneNumber={this.props.restaurant_phone_number}/>
         <Footer restaurantName={this.props.restaurant_name} />
       </React.Fragment>
     );

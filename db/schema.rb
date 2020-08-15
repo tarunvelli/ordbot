@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_05_131039) do
+ActiveRecord::Schema.define(version: 2020_08_15_074019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_07_05_131039) do
     t.string "encrypted_account_sid_iv"
     t.string "encrypted_auth_token"
     t.string "encrypted_auth_token_iv"
+    t.text "phone_number"
     t.index ["encrypted_account_sid_iv"], name: "index_restaurants_on_encrypted_account_sid_iv", unique: true
     t.index ["encrypted_auth_token_iv"], name: "index_restaurants_on_encrypted_auth_token_iv", unique: true
   end

@@ -2,6 +2,7 @@
 <%- items: @items.group_by { |item| item.category }, %>
 <%- from: @from, %>
 <%- restaurant_name: @restaurant.name, %>
+<%- restaurant_phone_number: @restaurant.phone_number, %>
 <%- restaurant_orders_url: restaurant_orders_url %>
 <%- } %>
 

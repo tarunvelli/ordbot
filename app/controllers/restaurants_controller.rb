@@ -42,7 +42,7 @@ class RestaurantsController < PanelController
   def update
     respond_to do |format|
       if @restaurant.update(restaurant_params)
-        format.html { redirect_to @restaurant, notice: 'Restaurant was successfully updated.' }
+        format.html { redirect_to edit_restaurant_path(@restaurant), notice: 'Restaurant was successfully updated.' }
         format.json { render :show, status: :ok, location: @restaurant }
       else
         format.html { render :edit }
@@ -75,6 +75,6 @@ class RestaurantsController < PanelController
 
   # Only allow a list of trusted parameters through.
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :account_sid, :auth_token)
+    params.require(:restaurant).permit(:name, :phone_number, :address, :account_sid, :auth_token)
   end
 end

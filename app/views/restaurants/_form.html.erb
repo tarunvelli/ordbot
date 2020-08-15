@@ -8,7 +8,7 @@
     <div class="tab-content" id="myTabContent">
     <div class="tab-pane show active" id="restaurant-details" role="tabpanel" aria-labelledby="restaurant-details-tab">
     <br/>
-    <p class="mb-4">Add details about how to get Twilio client id and secret, please visit the <a target="_blank" href="https://www.twilio.com/">twilio link</a>.</p>
+    <p class="mb-4">(Add details about how to get Twilio client id and secret) please visit the <a target="_blank" href="https://www.twilio.com/">twilio link</a>.</p>
     <div class="row">
       <div class="col-lg-6">
         <%= form_with(model: restaurant, local: true) do |form| %>
@@ -27,6 +27,11 @@
           <div class="form-group mb-2">
             <%= form.label :name %>
             <%= form.text_field :name, class: 'form-control form-control-sm' %>
+          </div>
+
+          <div class="form-group mb-2">
+            <%= form.label :phone_number %><span class="text-xs text-gray-600"> Including country code, eg +919999999999</span>
+            <%= form.text_field :phone_number, class: 'form-control form-control-sm' %>
           </div>
 
           <div class="form-group mb-2">

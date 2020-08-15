@@ -9,7 +9,7 @@ class Restaurant < ApplicationRecord
   attr_encrypted :account_sid, key: :account_sid_encryption_key
   attr_encrypted :auth_token, key: :auth_token_encryption_key
 
-  validates :name, :account_sid, :auth_token, presence: true
+  validates :name, :phone_number, :account_sid, :auth_token, presence: true
 
   private
 
