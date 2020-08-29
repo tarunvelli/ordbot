@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  include Authority::UserAbilities
-  rolify
+  acts_as_paranoid
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -8,7 +7,8 @@ class User < ApplicationRecord
          :validatable, :confirmable,
          :omniauthable, omniauth_providers: [:google_oauth2]
 
-  has_and_belongs_to_many :restaurants
+  rolify
+  has_many :restaurants, through: :roles, source: :resource, source_type: 'Restaurant'
 
   def self.from_omniauth(access_token)
     data = access_token.info
@@ -25,5 +25,9 @@ class User < ApplicationRecord
     end
 
     user
+  end
+
+  def role_in_resource(resource)
+    self.roles.find_by(resource_id: resource.id, resource_type: resource.class.name)&.name
   end
 end

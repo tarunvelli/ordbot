@@ -1,79 +1,56 @@
-<div class="card shadow mb-4">
-  <div class="card-body">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <a class="nav-link active" id="restaurant-details-tab" data-toggle="tab" href="#restaurant-details" role="tab" aria-controls="restaurant-details" aria-selected="false">Restaurant Details</a>
-      </li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-    <div class="tab-pane show active" id="restaurant-details" role="tabpanel" aria-labelledby="restaurant-details-tab">
-    <br/>
-    <p class="mb-4">(Add details about how to get Twilio client id and secret) please visit the <a target="_blank" href="https://www.twilio.com/">twilio link</a>.</p>
-    <div class="row">
-      <div class="col-lg-6">
-        <%= form_with(model: restaurant, local: true) do |form| %>
-          <% if restaurant.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
-
-              <ul>
-                <% restaurant.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
-
-          <div class="form-group mb-2">
-            <%= form.label :name %>
-            <%= form.text_field :name, class: 'form-control form-control-sm' %>
-          </div>
-
-          <div class="form-group mb-2">
-            <%= form.label :phone_number %><span class="text-xs text-gray-600"> Including country code, eg +919999999999</span>
-            <%= form.text_field :phone_number, class: 'form-control form-control-sm' %>
-          </div>
-
-          <div class="form-group mb-2">
-            <%= form.label :address %>
-            <%= form.text_area :address, class: 'form-control form-control-sm' %>
-          </div>
-
-          <div class="form-group mb-2">
-            <%= form.label :account_sid %>
-            <%= form.password_field :account_sid, class: 'form-control form-control-sm', value: restaurant.account_sid, onfocus: "this.type='text'", onfocusout: "this.type='password'"%>
-          </div>
-
-          <div class="form-group mb-2">
-            <%= form.label :auth_token %>
-            <%= form.password_field :auth_token, class: 'form-control form-control-sm', value: restaurant.auth_token , onfocus: "this.type='text'", onfocusout: "this.type='password'"%>
-          </div>
-
-          <div class="form-group mb-2">
-            <%= form.submit class: 'btn btn-primary mb-2' %>
-          </div>
-        <% end %>
-
-        <%- if restaurant.persisted? %>
-          <br/>
-          <div class="form-group mb-2">
-            <label for="webhook_url">Webhook URL</label>
-            <div class="input-group">
-              <%- webhook_url = restaurant_webhook_url(restaurant_id: restaurant.id) %>
-              <%= text_field_tag :webhook_url, webhook_url, class: "form-control-plaintext", readonly: true %>
-              <div class="input-group-append">
-                <button type="button" class="btn btn-secondary" onclick="copyToClipboard('webhook_url')">
-                  <i class="fa fa-paste"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-        <% end %>
+<p class="mb-4">(Add details about how to get Twilio client id and secret) please visit <a target="_blank" href="https://www.twilio.com/">Twilio</a>.</p>
+<div class="row">
+  <div class="col-lg-6">
+    <%= form_with(model: restaurant, local: true) do |form| %>
+      <% if restaurant.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+          <ul>
+            <% restaurant.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="form-group mb-2">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: 'form-control form-control-sm' %>
       </div>
-    </div>
-    </div>
-    </div>
+      <div class="form-group mb-2">
+        <%= form.label :phone_number %><span class="text-xs text-gray-600"> Including country code, eg +919999999999</span>
+        <%= form.text_field :phone_number, class: 'form-control form-control-sm' %>
+      </div>
+      <div class="form-group mb-2">
+        <%= form.label :address %>
+        <%= form.text_area :address, class: 'form-control form-control-sm' %>
+      </div>
+      <div class="form-group mb-2">
+        <%= form.label :account_sid %>
+        <%= form.password_field :account_sid, class: 'form-control form-control-sm', value: restaurant.account_sid, onfocus: "this.type='text'", onfocusout: "this.type='password'"%>
+      </div>
+      <div class="form-group mb-2">
+        <%= form.label :auth_token %>
+        <%= form.password_field :auth_token, class: 'form-control form-control-sm', value: restaurant.auth_token , onfocus: "this.type='text'", onfocusout: "this.type='password'"%>
+      </div>
+      <div class="form-group mb-2">
+        <%= form.submit class: 'btn btn-primary mb-2' %>
+      </div>
+    <% end %>
+    <%- if restaurant.persisted? %>
+      <br/>
+      <div class="form-group mb-2">
+        <label for="webhook_url">Webhook URL</label>
+        <div class="input-group">
+          <%- webhook_url = restaurant_webhook_url(restaurant_id: restaurant.id) %>
+          <%= text_field_tag :webhook_url, webhook_url, class: "form-control-plaintext", readonly: true %>
+          <div class="input-group-append">
+            <button type="button" class="btn btn-secondary" onclick="copyToClipboard('webhook_url')">
+              <i class="fa fa-paste"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 

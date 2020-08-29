@@ -1,6 +1,7 @@
 class RestaurantsController < PanelController
   before_action :set_restaurant, only: %i[show edit update destroy]
   before_action :set_new_restaurant, only: %i[create]
+  after_action :verify_authorized, only: %i[update destroy]
 
   # GET /restaurants
   # GET /restaurants.json
@@ -20,13 +21,16 @@ class RestaurantsController < PanelController
   end
 
   # GET /restaurants/1/edit
-  def edit; end
+  def edit;
+    @users = @restaurant.users.includes(:roles)
+  end
 
   # POST /restaurants
   # POST /restaurants.json
   def create
     respond_to do |format|
       if @restaurant.save
+        @restaurant.add_admin(current_user)
         notice = 'Restaurant was successfully created. Please paste the Webhook url in Twilio.'
         format.html { redirect_to edit_restaurant_path(@restaurant), notice: notice }
         format.json { render :show, status: :created, location: @restaurant }
@@ -40,6 +44,7 @@ class RestaurantsController < PanelController
   # PATCH/PUT /restaurants/1
   # PATCH/PUT /restaurants/1.json
   def update
+    authorize @restaurant
     respond_to do |format|
       if @restaurant.update(restaurant_params)
         format.html { redirect_to edit_restaurant_path(@restaurant), notice: 'Restaurant was successfully updated.' }
@@ -54,6 +59,7 @@ class RestaurantsController < PanelController
   # DELETE /restaurants/1
   # DELETE /restaurants/1.json
   def destroy
+    authorize @restaurant
     @restaurant.destroy
     respond_to do |format|
       format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
@@ -70,7 +76,6 @@ class RestaurantsController < PanelController
 
   def set_new_restaurant
     @restaurant = Restaurant.new(restaurant_params)
-    @restaurant.users << current_user
   end
 
   # Only allow a list of trusted parameters through.

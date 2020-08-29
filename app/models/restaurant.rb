@@ -1,8 +1,7 @@
 class Restaurant < ApplicationRecord
   resourcify
-  include Authority::Abilities
+  has_many :users, through: :roles
 
-  has_and_belongs_to_many :users
   has_many :orders
   has_many :items
 
@@ -10,6 +9,10 @@ class Restaurant < ApplicationRecord
   attr_encrypted :auth_token, key: :auth_token_encryption_key
 
   validates :name, :phone_number, :account_sid, :auth_token, presence: true
+
+  def add_admin(user)
+    user.add_role(:admin, self)
+  end
 
   private
 
