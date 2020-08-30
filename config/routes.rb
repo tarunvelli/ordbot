@@ -11,10 +11,13 @@ Rails.application.routes.draw do
   }
 
   resources :restaurants do
+    post 'add_user'
+    post 'update_user'
+    post 'remove_user'
     resources :orders
     resources :items do
       collection do
-        post 'parse'
+        post 'bulk_add'
         post 'sample_file'
       end
     end

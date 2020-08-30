@@ -9,8 +9,8 @@ class PanelController < ActionController::Base
 
   def user_not_authorized(_exception)
     respond_to do |format|
-      format.html { redirect_back(fallback_location:"/", notice: "Access denied") }
-      format.json { render json: { error: { message: "Access denied" } }, status: :forbidden }
+      format.html { redirect_back(fallback_location: '/', notice: 'Access denied') }
+      format.json { render json: { error: { message: 'Access denied' } }, status: :forbidden }
     end
   end
 end

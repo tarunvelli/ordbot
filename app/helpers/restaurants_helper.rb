@@ -22,4 +22,15 @@ module RestaurantsHelper
   def pending_orders
     @orders.where(state: 'received').count.to_s
   end
+
+  def restaurant_users_details(users)
+    users.sort_by(&:id).map do |user|
+      {
+        id: user.id,
+        email: user.email,
+        role: user.resource_role(@restaurant),
+        confirmed: user.confirmed?
+      }
+    end
+  end
 end

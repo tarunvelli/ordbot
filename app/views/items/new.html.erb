@@ -23,7 +23,7 @@
         <%= link_to "Download Sample File", sample_file_restaurant_items_path(@restaurant), method: 'post', class: 'btn btn-primary btn-sm' %>
         <br/>
         <br/>
-        <%= form_with url: parse_restaurant_items_path(@restaurant) do |f| %>
+        <%= form_with url: bulk_add_restaurant_items_path(@restaurant) do |f| %>
           <%= f.file_field :uploaded_file %>
           <%= f.submit 'Upload', class: 'btn btn-primary btn-sm mb-2' %>
         <% end %>

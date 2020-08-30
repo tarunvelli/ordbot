@@ -63,6 +63,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Added by developer
 gem 'attr_encrypted', '~> 3.1.0'
 gem 'devise'
+gem 'devise_invitable', '~> 2.0.0'
 gem 'omniauth-google-oauth2'
 gem 'paranoia', '~> 2.2'
 gem 'pundit'

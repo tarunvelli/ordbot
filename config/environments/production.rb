@@ -61,7 +61,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "whatsapp_restaurant_bot_production"
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'ord-bot.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'ordbot.io' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_options = {from: 'whatsapporderbot@gmail.com'}
 

@@ -11,7 +11,19 @@ class RestaurantPolicy < ApplicationPolicy
     user.has_role?(:admin, record)
   end
 
-  def parse?
+  def bulk_add?
+    user.has_role?(:admin, record)
+  end
+
+  def add_user?
+    user.has_role?(:admin, record)
+  end
+
+  def remove_user?
+    user.has_role?(:admin, record)
+  end
+
+  def update_user?
     user.has_role?(:admin, record)
   end
 end

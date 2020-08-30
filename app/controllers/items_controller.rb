@@ -4,7 +4,7 @@ class ItemsController < PanelController
   before_action :set_item, only: %i[show edit update destroy]
   before_action :set_restaurant
   before_action :set_new_item, only: %i[create]
-  after_action :verify_authorized, only: %i[create update destroy parse]
+  after_action :verify_authorized, only: %i[create update destroy bulk_add]
 
   # GET /items
   # GET /items.json
@@ -68,7 +68,7 @@ class ItemsController < PanelController
     end
   end
 
-  def parse
+  def bulk_add
     authorize @restaurant
     @new_items = create_items_from_file(params[:uploaded_file])
 

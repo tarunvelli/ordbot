@@ -1,3 +1,8 @@
-<%- restaurant_users = @users.map { |user| { id: user.id, email: user.email, role: user.role_in_resource(@restaurant) } } %>
-
-<%= react_component("RestaurantUsers", { restaurant_id: @restaurant.id, restaurant_users: restaurant_users }) %>
+<%- props = { %>
+<%- restaurant_users: restaurant_users_details(@users), %>
+<%- restaurant_id: @restaurant.id, %>
+<%- add_user_url: restaurant_add_user_url(@restaurant), %>
+<%- update_user_url: restaurant_update_user_url(@restaurant), %>
+<%- remove_user_url: restaurant_remove_user_url(@restaurant) %>
+<%- } %>
+<%= react_component("RestaurantUsers", props) %>
