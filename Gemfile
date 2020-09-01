@@ -61,7 +61,9 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Added by developer
+gem 'actionpack-action_caching'
 gem 'attr_encrypted', '~> 3.1.0'
+gem 'dalli'
 gem 'devise'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'omniauth-google-oauth2'

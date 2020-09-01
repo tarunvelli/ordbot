@@ -25,6 +25,8 @@ GEM
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.2.0)
+    actionpack-action_caching (1.2.1)
+      actionpack (>= 4.0.0)
     actiontext (6.0.3.2)
       actionpack (= 6.0.3.2)
       activerecord (= 6.0.3.2)
@@ -83,6 +85,7 @@ GEM
     concurrent-ruby (1.1.7)
     connection_pool (2.2.3)
     crass (1.0.6)
+    dalli (2.7.10)
     devise (4.7.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -310,10 +313,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionpack-action_caching
   attr_encrypted (~> 3.1.0)
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  dalli
   devise
   devise_invitable (~> 2.0.0)
   dotenv-rails

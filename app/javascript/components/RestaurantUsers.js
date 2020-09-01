@@ -117,7 +117,7 @@ class RestaurantUsers extends React.Component {
           <td>
             <button
               type="button"
-              className="btn btn-link"
+              className="btn btn-link py-0"
               disabled={ user.role === 'admin' }
               data-user-id={user.id}
               onClick={this.onRemoveUser}>

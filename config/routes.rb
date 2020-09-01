@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  get '/home', to: 'panel#home', as: 'home'
+
   resources :restaurants do
     post 'add_user'
     post 'update_user'
