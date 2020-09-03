@@ -1,4 +1,6 @@
 class RestaurantsController < PanelController
+  include RestaurantUsers
+
   before_action :set_restaurant_user, only: %i[remove_user update_user]
   before_action :set_new_or_existing_user, only: %i[add_user]
   before_action :set_restaurant, only: %i[show edit update destroy add_user remove_user update_user]
@@ -111,10 +113,6 @@ class RestaurantsController < PanelController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_restaurant_user
-    @restaurant_user = User.find(params[:user_id])
-  end
-
   def set_restaurant
     @restaurant = Restaurant.find(params[:restaurant_id] || params[:id])
   end
@@ -123,18 +121,7 @@ class RestaurantsController < PanelController
     @restaurant = Restaurant.new(restaurant_params)
   end
 
-  def set_new_or_existing_user
-    @restaurant_user = User.find_by(email: params[:user_email])
-    @restaurant_user = User.invite!({ email: params[:user_email] }, current_user) if @restaurant_user.nil?
-  end
-
   def restaurant_params
     params.require(:restaurant).permit(:name, :phone_number, :address, :account_sid, :auth_token)
-  end
-
-  def restaurant_users_response
-    render json: {
-      restaurant_users: helpers.restaurant_users_details(@restaurant.users)
-    }
   end
 end
