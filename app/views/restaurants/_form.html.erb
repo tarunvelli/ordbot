@@ -25,6 +25,10 @@
         <%= form.text_area :address, class: 'form-control form-control-sm' %>
       </div>
       <div class="form-group mb-2">
+        <%= form.label :currency %>
+        <%= form.select :currency, all_currencies, { include_blank: 'Select Currency' }, class: "form-control", required: true %>
+      </div>
+      <div class="form-group mb-2">
         <%= form.label :account_sid %>
         <%= form.password_field :account_sid, class: 'form-control form-control-sm', value: restaurant.account_sid, onfocus: "this.type='text'", onfocusout: "this.type='password'"%>
       </div>
@@ -45,6 +49,18 @@
           <%= text_field_tag :webhook_url, webhook_url, class: "form-control-plaintext", readonly: true %>
           <div class="input-group-append">
             <button type="button" class="btn btn-secondary" onclick="copyToClipboard('webhook_url')">
+              <i class="fa fa-paste"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group mb-2">
+        <label for="menu_url">Menu URL</label>
+        <div class="input-group">
+          <%- menu_url = restaurant_menu_url(restaurant_id: restaurant.id) %>
+          <%= text_field_tag :menu_url, menu_url, class: "form-control-plaintext", readonly: true %>
+          <div class="input-group-append">
+            <button type="button" class="btn btn-secondary" onclick="copyToClipboard('menu_url')">
               <i class="fa fa-paste"></i>
             </button>
           </div>

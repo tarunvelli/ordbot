@@ -31,7 +31,7 @@ module SendMessage
   def send_confirmation_request
     message = "To confirm your order please reply 'confirm ##{id}'\n\n"
     message += "Your order details are:\n"
-    items_details.each do |order_item|
+    order_items_details.each do |order_item|
       message += "#{order_item[:name]} x #{order_item[:quantity]}\n"
     end
     message += "Cost : ₹ #{cost}"

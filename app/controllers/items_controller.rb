@@ -102,6 +102,6 @@ class ItemsController < PanelController
 
   # Only allow a list of trusted parameters through.
   def item_params
-    params.require(:item).permit(:name, :cost, :category, :description)
+    params.require(:item).permit(:name, :cost, :category, :description, :cost_currency)
   end
 end

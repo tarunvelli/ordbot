@@ -12,7 +12,7 @@
         <td class="col-6">
           <%= item.name %>
         </td>
-        <td class="col-4"><%= item.cost %></td>
+        <td class="col-4"><%= item.cost.format %></td>
         <td class="col-1">
           <%= link_to edit_restaurant_item_path(@restaurant, item) do %>
             <i class="fa fa-edit"></i>

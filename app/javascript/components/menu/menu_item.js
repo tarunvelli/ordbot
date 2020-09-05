@@ -9,7 +9,7 @@ const MenuItem = (props) => {
     <div key={item.id} className="col-lg-6 menu-item filter-starters">
       <div className="menu-content">
         <span>{item.name}</span>
-        <span>₹ {item.cost}</span>
+        <span>{item.display_cost}</span>
       </div>
       <div className="menu-ingredients">{item.description}</div>
       <div className="d-flex flex-row-reverse">

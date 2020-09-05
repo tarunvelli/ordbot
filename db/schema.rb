@@ -10,19 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_01_130439) do
+ActiveRecord::Schema.define(version: 2020_09_05_175783) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.float "cost"
     t.string "category"
     t.text "description"
     t.bigint "restaurant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "cost_cents", default: 0, null: false
+    t.string "cost_currency", default: "USD", null: false
     t.index ["restaurant_id"], name: "index_items_on_restaurant_id"
   end
 
@@ -37,12 +38,13 @@ ActiveRecord::Schema.define(version: 2020_09_01_130439) do
   create_table "orders", force: :cascade do |t|
     t.string "from"
     t.text "note"
-    t.float "cost"
     t.string "state"
     t.text "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "restaurant_id", null: false
+    t.integer "cost_cents", default: 0, null: false
+    t.string "cost_currency", default: "USD", null: false
     t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
   end
 
@@ -56,6 +58,7 @@ ActiveRecord::Schema.define(version: 2020_09_01_130439) do
     t.string "encrypted_auth_token"
     t.string "encrypted_auth_token_iv"
     t.text "phone_number"
+    t.string "currency", default: "USD"
     t.index ["encrypted_account_sid_iv"], name: "index_restaurants_on_encrypted_account_sid_iv", unique: true
     t.index ["encrypted_auth_token_iv"], name: "index_restaurants_on_encrypted_auth_token_iv", unique: true
   end

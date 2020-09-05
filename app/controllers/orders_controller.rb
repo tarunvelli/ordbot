@@ -8,7 +8,7 @@ class OrdersController < PanelController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = @restaurant.orders.includes(:order_items, :items)
+    @orders = @restaurant.orders.where(state: Order::PRE_DELIVERED_STATES).includes(:order_items, :items)
   end
 
   # GET /orders/1

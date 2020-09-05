@@ -35,6 +35,10 @@
           </div>
 
           <div class="form-group mb-2">
+            <%= form.hidden_field :cost_currency, class: 'form-control form-control-sm', value: @restaurant.currency %>
+          </div>
+
+          <div class="form-group mb-2">
             <%= form.submit class: 'btn btn-primary mb-2' %>
           </div>
         <% end %>

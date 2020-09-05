@@ -85,14 +85,14 @@ class OrdersIndex extends React.Component {
         return(
           <tr key={`cart-item-${i}`}>
             <td scope="row">{ this.items[itemId]['name'] } x { cart[itemId] }</td>
-            <th> ₹ { this.items[itemId]['cost'] * cart[itemId] }</th>
+            <th> { this.props.currency_symbol }{ this.items[itemId]['cost'] * cart[itemId] }</th>
           </tr>
         )
     })
     contents.push(
       <tr key={`cart-item-total`}>
         <td scope="row"> Total Cost </td>
-        <th> ₹ { total } </th>
+        <th> { this.props.currency_symbol }{ total } </th>
       </tr>
     )
 
@@ -177,7 +177,11 @@ class OrdersIndex extends React.Component {
           </section>
         </main>
         { this.checkoutModal() }
-        <OrderReceivedNotice orderId={this.state.orderId} phoneNumber={this.props.restaurant_phone_number}/>
+        <OrderReceivedNotice
+          orderId={this.state.orderId}
+          phoneNumber={this.props.restaurant_phone_number}
+          currencySymbol={this.props.currency_symbol}
+        />
         <Footer restaurantName={this.props.restaurant_name} />
       </React.Fragment>
     );

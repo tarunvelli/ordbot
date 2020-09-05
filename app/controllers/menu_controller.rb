@@ -3,7 +3,7 @@ class MenuController < ActionController::Base
 
   def show
     @from = params['u']&.decrypt
-    @items = @restaurant.items
+    @items = @restaurant.items.map(&:item_details)
   end
 
   private

@@ -14,6 +14,11 @@ class Restaurant < ApplicationRecord
     users.any? { |user| user != restaurant_user && user.has_role?(:admin, self) }
   end
 
+  def broadcast_to_orders_channel
+    orders_details = orders.where(state: Order::PRE_DELIVERED_STATES).map(&:order_details)
+    ActionCable.server.broadcast("orders_channel_#{id}", orders_details)
+  end
+
   private
 
   def account_sid_encryption_key

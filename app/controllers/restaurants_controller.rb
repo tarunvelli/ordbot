@@ -122,6 +122,6 @@ class RestaurantsController < PanelController
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :phone_number, :address, :account_sid, :auth_token)
+    params.require(:restaurant).permit(:name, :phone_number, :address, :account_sid, :auth_token, :currency)
   end
 end

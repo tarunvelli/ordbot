@@ -33,4 +33,10 @@ module RestaurantsHelper
       }
     end
   end
+
+  def all_currencies
+    Money::Currency.table.map do |_, currency_details|
+      [currency_details[:name], currency_details[:iso_code]]
+    end
+  end
 end

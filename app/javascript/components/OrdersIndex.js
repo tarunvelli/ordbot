@@ -85,8 +85,11 @@ class OrdersIndex extends React.Component {
                     )
                   })
                 }
-                <h6>Cost : ₹ {order.cost}</h6>
-                <p className="small text-gray-600">Note : {order.note}</p>
+                <h6>Cost : {order.display_cost}</h6>
+                <p className="small text-gray-600">
+                  <span>Address : {order.address}</span><br/>
+                  <span>Note : {order.note}</span>
+                </p>
                 <sub>Order Id : {order.id}</sub>
               </div>
             </div>

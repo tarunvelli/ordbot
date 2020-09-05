@@ -7,6 +7,7 @@ module ParseFile
     xlsx = Roo::Spreadsheet.open(file_data.path)
     rows = xlsx&.parse(headers: true)&.map { |r| r.transform_keys(&:downcase) } || []
     rows = rows.reject.each_with_index { |_r, index| index.zero? }
+    rows.each { |r| r[:cost_currency] = @restaurant.currency }
     @restaurant.items.create(rows)
   end
 end
