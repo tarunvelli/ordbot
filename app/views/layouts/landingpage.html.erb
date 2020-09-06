@@ -16,18 +16,14 @@
   <!-- <link href="assets/img/favicon.png" rel="icon"> -->
   <!-- <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Third party -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/0f3d4e8f64.js" crossorigin="anonymous"></script>
 
-  <!-- <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet"> -->
-  <!-- <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet"> -->
-
-  <!-- Webpack -->
-  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <!-- from assets -->
+  <!-- Local -->
   <%= stylesheet_link_tag 'landing-page', media: 'all', 'data-turbolinks-track': 'reload' %>
-
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'landing-page', 'data-turbolinks-track': 'reload' %>
 
   <!-- =======================================================
   * Template Name: Vesperr - v2.1.0
@@ -425,13 +421,5 @@
   </a>
 
   <%= javascript_pack_tag 'landing-page' %>
-  <script>
-    // Prevent page reload on same-page navigation
-    $(document).on('turbolinks:click', function (event) {
-      if (event.target.getAttribute('href').charAt(0) === '#') {
-        return event.preventDefault()
-      }
-    })
-  </script>
 </body>
 </html>
