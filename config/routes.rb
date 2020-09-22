@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # change this
   default_url_options :host => "ordbot.io"
 
   root :to => "landingpage#index"
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
   }
 
   get '/home', to: 'panel#home', as: 'home'
+  get '/super_dashboard', to: 'super_dashboard#super_dashboard', as: 'super_dashboard'
 
   resources :restaurants do
     post 'add_user'

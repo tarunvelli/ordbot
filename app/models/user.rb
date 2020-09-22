@@ -28,6 +28,10 @@ class User < ApplicationRecord
     user
   end
 
+  def super_user?
+    has_role? :super_user
+  end
+
   def resource_role(resource)
     roles.find_by(resource_id: resource.id, resource_type: resource.class.name)&.name
   end

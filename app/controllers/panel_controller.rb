@@ -8,7 +8,11 @@ class PanelController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def home
-    redirect_to primary_restaurant_orders
+    if current_user.super_user?
+      redirect_to super_dashboard_path
+    else
+      redirect_to primary_restaurant_orders
+    end
   end
 
   def user_not_authorized(_exception)
