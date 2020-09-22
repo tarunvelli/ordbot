@@ -17,7 +17,7 @@
   <!-- <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
 
   <!-- Third party -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/0f3d4e8f64.js" crossorigin="anonymous"></script>
 
@@ -74,7 +74,7 @@
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
-          <%= video_tag(["ordbot.webm", "ordbot.mp4"], class: "img-fluid", autoplay: true, loop:true, muted:true, playsinline: true) %>
+          <%= video_tag(["ordbot.webm", "ordbot.mp4"], class: "img-fluid hero-video", autoplay: true, loop:true, muted:true, playsinline: true) %>
         </div>
       </div>
     </div>
@@ -83,39 +83,8 @@
 
   <main id="main">
 
-    <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients">
-      <div class="container">
-
-        <div class="row d-flex justify-content-around">
-
-          <div class="col-lg-2 col-md-4 col-6">
-            <%= image_tag 'auto_parts.svg', class: "img-fluid"%>
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6">
-            <%= image_tag 'baby_swim.svg', class: "img-fluid"%>
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6">
-            <%= image_tag 'beauty_box.svg', class: "img-fluid"%>
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6">
-            <%= image_tag 'green_suppliers.svg', class: "img-fluid"%>
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6">
-            <%= image_tag 'yoga_baby.svg', class: "img-fluid"%>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Clients Section -->
-
     <!-- ======= About Us Section ======= -->
-    <section id="about" class="about nav_anchor">
+    <section id="about" class="about nav_anchor bg-light">
       <div class="container">
 
         <div class="section-title">
@@ -146,7 +115,7 @@
     </section><!-- End About Us Section -->
 
     <!-- ======= Counts Section ======= -->
-    <section id="counts" class="counts">
+    <section id="counts" class="counts bg-light">
       <div class="container">
 
         <div class="row">
@@ -287,7 +256,7 @@
     </section><!-- End Features Section -->
 
     <!-- ======= F.A.Q Section ======= -->
-    <section id="faq" class="faq nav_anchor">
+    <section id="faq" class="faq nav_anchor bg-light">
       <div class="container">
 
         <div class="section-title">

@@ -25,7 +25,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   color: #444444;
 }
 
@@ -39,7 +39,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -143,11 +143,11 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a {
   display: block;
   position: relative;
-  color: #555555;
+  color: #74808B;
   padding: 8px 0 12px 25px;
   transition: 0.3s;
   font-size: 14px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
@@ -385,17 +385,17 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
-  color: black;
+  color: #192734;
 }
 
 #hero h2 {
-  color: #484848;
+  color: #74808B;
   margin-bottom: 50px;
   font-size: 24px;
 }
 
 #hero .btn-get-started {
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 1px;
@@ -414,6 +414,10 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero .animated {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+.hero-video {
+  border-radius: 0.5rem;
 }
 
 @media (min-width: 1024px) {
@@ -603,7 +607,7 @@ section {
 }
 
 .about .content .btn-learn-more {
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: 14px;
   letter-spacing: 1px;
@@ -670,7 +674,7 @@ section {
 .counts .content .count-box p {
   padding: 15px 0 0 0;
   margin: 0 0 0 50px;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   color: #484848;
 }
@@ -788,7 +792,7 @@ section {
 .contact .contact-about p {
   font-size: 14px;
   line-height: 24px;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   color: #888;
 }
 
