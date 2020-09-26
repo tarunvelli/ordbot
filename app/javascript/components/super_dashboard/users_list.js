@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const UsersWithRestaurants = (props) => {
+const UsersList = (props) => {
   let { users } = props;
 
   return (
@@ -12,6 +12,7 @@ const UsersWithRestaurants = (props) => {
         <tr>
           <th className="col-md-2 text-center" scope="col">#</th>
           <th className="text-center" scope="col">User</th>
+          <th className="text-center" scope="col">Created At</th>
           <th className="text-center" scope="col">Restaurants</th>
         </tr>
       </thead>
@@ -24,6 +25,7 @@ const UsersWithRestaurants = (props) => {
                   {user.id}
                 </td>
                 <td className="text-center" rowSpan={user.restaurants.length || 1}>{user.email}</td>
+                <td className="text-center" rowSpan={user.restaurants.length || 1}>{user.created_at}</td>
                 <td className="text-center">{user.restaurants[0]}</td>
               </tr>
               {user.restaurants
@@ -45,4 +47,4 @@ const UsersWithRestaurants = (props) => {
   );
 };
 
-export default UsersWithRestaurants;
+export default UsersList;
