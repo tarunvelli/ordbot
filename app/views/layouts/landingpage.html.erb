@@ -5,25 +5,47 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>OrdBot</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <meta content="Whatsapp bot that helps you grow your business" name="descriptison">
-  <meta content="whatsapp twilio" name="keywords">
+
+  <title>OrdBot - Sell Via WhatsApp!</title>
+  <meta name="description" content="Whatsapp bot that helps you grow your business" />
+  <meta name="keywords" content="whatsapp twilio sell retail" >
+
+  <!-- Schema.org markup for Google+ -->
+  <meta itemprop="name" content="OrdBot - Sell Via WhatsApp!">
+  <meta itemprop="description" content="Whatsapp bot that helps you grow your business">
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="product">
+  <meta name="twitter:site" content="@tarunvelli">
+  <meta name="twitter:title" content="OrdBot - Sell Via WhatsApp!">
+  <meta name="twitter:description" content="Whatsapp bot that helps you grow your business">
+  <meta name="twitter:creator" content="@tarunvelli">
+  <meta name="twitter:data1" content="0.0">
+  <meta name="twitter:label1" content="Price">
+
+  <!-- Open Graph data -->
+  <meta property="og:title" content="OrdBot - Sell Via WhatsApp!" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://ordbot.io" />
+  <meta property="og:description" content="Whatsapp bot that helps you grow your business" />
+  <meta property="og:site_name" content="OrdBot" />
+  <meta property="og:price:amount" content="0.0" />
+  <meta property="og:price:currency" content="USD" />
 
   <!-- Favicons -->
   <%= favicon_link_tag 'logo.png' %>
   <!-- <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
 
   <!-- Third party -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/0f3d4e8f64.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/0f3d4e8f64.js" crossorigin="anonymous" defer></script>
 
   <!-- Local -->
   <%= stylesheet_link_tag 'landing-page', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'landing-page', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'landing-page', 'data-turbolinks-track': 'reload', defer: "defer"%>
 
   <!-- =======================================================
   * Template Name: Vesperr - v2.1.0
