@@ -29,18 +29,47 @@
 ## Steps
 
 - Clone repository
-> `git clone https://github.com/tarunvelli/ordbot.git`
+
+```
+git clone https://github.com/tarunvelli/ordbot.git
+```
 
 - Change into into repo directory
-> `cd ordbot`
+
+```
+cd ordbot
+```
 
 - Install gems
-> `bundle install`
+
+```
+bundle install
+```
 
 - Install node_modules
-> `yarn install`
+
+```
+yarn install
+```
+
+- Add .env file (can copy .env_sample) and add required values
+
+  - To generate keys for ACCOUNT_SID_ENCRYPTION_KEY and AUTH_TOEKN_ENCRYPTION_KEY run the following in rails console and copy to .env
+  ```
+  `rake secret\`[0..31]
+  ```
+
+  - To generate keys for CIPHER_KEY run the following in rails console and copy to .env
+  ```
+  len   = ActiveSupport::MessageEncryptor.key_len
+  salt  = SecureRandom.random_bytes(len)
+  key   = ActiveSupport::KeyGenerator.new('<some_password>').generate_key(salt, len)
+  Base64.encode64(key)
+  ```
 
 - Run the server
-> `rails server`
+```
+rails server
+```
 
 - The app will be available at http://localhost:3000
