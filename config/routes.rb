@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  get '/help', to: 'help#index', as: 'help'
+  get '/help/*page', to: 'help#page'
+
   get '/home', to: 'panel#home', as: 'home'
   get '/super_dashboard', to: 'super_dashboard#super_dashboard', as: 'super_dashboard'
 

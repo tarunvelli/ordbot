@@ -36,7 +36,6 @@
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -98,11 +97,16 @@
   </div>
   <!-- End of Page Wrapper -->
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
+  <!-- Help widget -->
+  <a class="help-widget" href="/help" target="_blank" data-toggle="tooltip" data-placement="top" title="Help Center">
+    <i class="fas fa-question-circle"></i>
   </a>
 
   <%= javascript_pack_tag 'sb_admin', 'data-turbolinks-track': 'reload' %>
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
   </body>
 </html>

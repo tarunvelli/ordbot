@@ -34,7 +34,7 @@ module SendMessage
     order_items_details.each do |order_item|
       message += "#{order_item[:name]} x #{order_item[:quantity]}\n"
     end
-    message += "Cost : ₹ #{cost}"
+    message += "Cost : #{cost.format}"
 
     send_message(message)
   end
@@ -48,7 +48,7 @@ module SendMessage
     )
 
     @client.messages.create(
-      from: 'whatsapp:+14155238886',
+      from: "whatsapp:#{restaurant.phone_number}",
       body: message,
       to: "whatsapp:#{from}"
     )

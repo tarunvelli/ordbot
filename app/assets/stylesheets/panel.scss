@@ -139,6 +139,31 @@ a:focus {
   font-weight: 800;
 }
 
+.help-widget {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  text-align: center;
+  color: #fff;
+  background: rgba(90, 92, 105, 0.5);
+  line-height: 46px;
+  border-radius: 50px;
+}
+
+.help-widget:focus, .help-widget:hover {
+  color: white;
+}
+
+.help-widget:hover {
+  background: #4e73df
+}
+
+.help-widget i {
+  font-weight: 800;
+}
+
 @-webkit-keyframes growIn {
   0% {
     transform: scale(0.9);

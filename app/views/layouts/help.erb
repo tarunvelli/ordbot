@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+
+  <title>OrdBot - Sell Via WhatsApp!</title>
+  <meta name="description" content="Whatsapp bot that helps you grow your business" />
+  <meta name="keywords" content="whatsapp twilio sell retail" >
+
+  <!-- Schema.org markup for Google+ -->
+  <meta itemprop="name" content="OrdBot - Sell Via WhatsApp!">
+  <meta itemprop="description" content="Whatsapp bot that helps you grow your business">
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="product">
+  <meta name="twitter:site" content="@tarunvelli">
+  <meta name="twitter:title" content="OrdBot - Sell Via WhatsApp!">
+  <meta name="twitter:description" content="Whatsapp bot that helps you grow your business">
+  <meta name="twitter:creator" content="@tarunvelli">
+  <meta name="twitter:data1" content="0.0">
+  <meta name="twitter:label1" content="Price">
+
+  <!-- Open Graph data -->
+  <meta property="og:title" content="OrdBot - Sell Via WhatsApp!" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://ordbot.io" />
+  <meta property="og:description" content="Whatsapp bot that helps you grow your business" />
+  <meta property="og:site_name" content="OrdBot" />
+  <meta property="og:price:amount" content="0.0" />
+  <meta property="og:price:currency" content="USD" />
+
+  <!-- Favicons -->
+  <%= favicon_link_tag 'logo.png' %>
+  <!-- <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+
+  <!-- Third party -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/0f3d4e8f64.js" crossorigin="anonymous" defer></script>
+
+  <!-- Local -->
+  <%= stylesheet_link_tag 'landing-page', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'landing-page', 'data-turbolinks-track': 'reload', defer: "defer"%>
+
+  <!-- =======================================================
+  * Template Name: Vesperr - v2.1.0
+  * Template URL: https://bootstrapmade.com/vesperr-free-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <main id="main">
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center bg-light">
+      <div class="container d-flex align-items-center">
+
+        <div class="logo mr-auto">
+          <h1 class="text-light"><a href="/"><%= image_tag 'logo.png' %><span>OrdBot</span></a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+
+        <nav class="nav-menu d-none d-lg-block">
+          <ul>
+            <li class="get-started"><%= link_to "Go to App", new_user_session_path %></li>
+          </ul>
+        </nav><!-- .nav-menu -->
+
+      </div>
+    </header><!-- End Header -->
+    <section class="help-center bg-light">
+      <div class="container">
+        <div class="section-title">
+          <h2>Help Center</h2>
+        </div>
+      </div>
+    </section>
+    <%= yield %>
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer class="fixed-bottom" id="footer">
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col-lg-6 text-lg-left text-center">
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/vesperr-free-bootstrap-template/ -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+            <a href="/" class="scrollto">Home</a>
+            <a href="/help" class="scrollto">Help</a>
+            <a href="https://github.com/tarunvelli/ordbot" target="_blank" >Github</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top">
+    <span>
+      <i class="fa fa-caret-square-up fa-3x"></i>
+    </span>
+  </a>
+
+  <%= javascript_pack_tag 'landing-page' %>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/help">Help</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Setup Twilio Sandbox</li>
+  </ol>
+</nav>
+<section>
+  <div class="container">
+    <h2>Setup Twilio Sandbox</h2>
+    <p>
+      You can setup a Twilio sandbox and use it to test Ordbot. You can setup a sandbox by following the following steps.
+    </p>
+    <h3> 1. Sign Up for Twilio </h3>
+    <p>
+      Create a new Account on twilio by going to this <a href="https://www.twilio.com/referral/SosgR9" target="_blank">link</a>.
+    </p>
+    <p>
+      You will be required to confirm your email-id and phone number.
+    </p>
+    <p>
+      After verifying your email-id and phone number you will be shown a welcome form. You can answer the form as following.
+    </p>
+    <dl class="row">
+      <dt class="col-sm-4">Which Twilio product are you here to use?</dt>
+      <dd class="col-sm-8">WhatsApp.</dd>
+
+      <dt class="col-sm-4">What do you plan to build with Twilio?</dt>
+      <dd class="col-sm-8">IVR & Bots</dd>
+
+      <dt class="col-sm-4">How do you want to build with Twilio?</dt>
+      <dd class="col-sm-8">With no code at all</dd>
+
+      <dt class="col-sm-4">What is your goal today?</dt>
+      <dd class="col-sm-8">3rd party integrations</dd>
+    </dl>
+    <h3>2. Activate Sandbox</h3>
+    <p>
+      Once your Twilio account is created, you can click on this <a href="https://www.twilio.com/console/sms/whatsapp/sandbox" target="_blank">link</a> to activate your Twilio Sandbox.
+    </p>
+    <h3>3. Configure Sandbox</h3>
+    <p>
+      Copy the Webhook URL of the Restaurant you setup in Ordbot by going to the Restaurants Settings page in Ordbot.<br/>
+      Paste the Webhook url in the "WHEN A MESSAGE COMES IN" input in Twilio Sandbox Configuration page and click Save at the bottom of the page.
+    </p>
+    <h3>4. Configure OrdBot </h3>
+    <p>
+      Copy the Account SID and Auth Token from the <a href="https://www.twilio.com/console" target="_blank">Twilio Console Page</a>.<br/>
+      Paste them in your Restaurant Settings page in OrdBot and save it.
+    </p>
+    <h3>5. Test the integration</h3>
+    <p>
+      On the <a href="https://www.twilio.com/console/sms/whatsapp/sandbox" target="_blank">Twilio Sandbox Page</a> you can find your sandbox number and joining instructions.
+    </p>
+    <p>
+      After joining the sandbox you can send a WhatsApp message to the sandbox number and it will respond with the restaurant's menu that you have setup.
+    </p>
+    <p>
+      You can place an order via the menu and see it in the Ordbot orders page. Updating the order status in Ordbot will send update notifications to your phone.
+    </p>
+  </div>
+</section>

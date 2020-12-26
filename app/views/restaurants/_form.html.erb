@@ -1,4 +1,4 @@
-<p class="mb-4">To learn how to setup Twillio for WhatsApp please visit <a target="_blank" href="https://www.twilio.com/whatsapp">Twilio</a></p>
+<p class="mb-4">To learn how to setup a trial Twilio trial account and Twillio sandbox visit the <a target="_blank" href="/help/setup_twilio_sandbox">help page</a>.</p>
 <div class="row">
   <div class="col-lg-6">
     <%= form_with(model: restaurant, local: true) do |form| %>
@@ -29,11 +29,11 @@
         <%= form.select :currency, all_currencies, { include_blank: 'Select Currency' }, class: "form-control", required: true %>
       </div>
       <div class="form-group mb-2">
-        <%= form.label :account_sid %>
+        <%= form.label :twilio_account_sid %>
         <%= form.password_field :account_sid, class: 'form-control form-control-sm', value: restaurant.account_sid, onfocus: "this.type='text'", onfocusout: "this.type='password'"%>
       </div>
       <div class="form-group mb-2">
-        <%= form.label :auth_token %>
+        <%= form.label :twilio_auth_token %>
         <%= form.password_field :auth_token, class: 'form-control form-control-sm', value: restaurant.auth_token , onfocus: "this.type='text'", onfocusout: "this.type='password'"%>
       </div>
       <div class="form-group mb-2">

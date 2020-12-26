@@ -8,8 +8,17 @@
 /*--------------------------------------------------------------
 # User Added
 --------------------------------------------------------------*/
+
+html {
+  min-height: 100%;
+}
+
 .mr-1x {
   margin-right: 1em;
+}
+
+main {
+  margin-bottom: 60px;
 }
 
 .nav_anchor::before {
@@ -19,6 +28,25 @@
   height: 285px;
   visibility: hidden;
   pointer-events: none;
+}
+
+.help-center {
+  margin-top: 70px;
+  padding-top: 15px;
+  padding-bottom: 0;
+}
+
+.article-card {
+  color: inherit;
+  margin-bottom: 15px;
+
+  .card {
+    width: 85%;
+  }
+
+  a {
+    color: inherit;
+  }
 }
 
 /*--------------------------------------------------------------

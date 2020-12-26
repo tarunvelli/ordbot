@@ -57,53 +57,47 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center">
-
-      <div class="logo mr-auto">
-        <h1 class="text-light"><a href="#hero"><%= image_tag 'logo.png' %><span>OrdBot</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+  <main id="main">
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+      <div class="container d-flex align-items-center">
+        <div class="logo mr-auto">
+          <h1 class="text-light"><a href="#hero"><%= image_tag 'logo.png' %><span>OrdBot</span></a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+        <nav class="nav-menu d-none d-lg-block">
+          <ul>
+            <li class="active"><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="/help">Help</a></li>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <li class="get-started"><%= link_to "Sign Up!", new_user_registration_path %></li>
+          </ul>
+        </nav><!-- .nav-menu -->
       </div>
+    </header><!-- End Header -->
 
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><%= link_to "Login", new_user_session_path %></li>
-
-          <li class="get-started"><%= link_to "Sign Up!", new_user_registration_path %></li>
-        </ul>
-      </nav><!-- .nav-menu -->
-
-    </div>
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center nav_anchor">
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Whatsapp bot that helps you grow your business</h1>
-          <h2>Tailor made for small to medium Restaurants and Retailers</h2>
-          <div>
-            <%= link_to "Get Started!", new_user_registration_path, class: 'btn-get-started scrollto' %>
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center nav_anchor">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+            <h1>Whatsapp bot that helps you grow your business</h1>
+            <h2>Tailor made for small to medium Restaurants and Retailers</h2>
+            <div>
+              <%= link_to "Get Started!", new_user_registration_path, class: 'btn-get-started scrollto' %>
+            </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 hero-img">
+            <%= video_tag(["ordbot.webm", "ordbot.mp4"], class: "img-fluid hero-video", autoplay: true, loop:true, muted:true, playsinline: true) %>
           </div>
         </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img">
-          <%= video_tag(["ordbot.webm", "ordbot.mp4"], class: "img-fluid hero-video", autoplay: true, loop:true, muted:true, playsinline: true) %>
-        </div>
       </div>
-    </div>
-
-  </section><!-- End Hero -->
-
-  <main id="main">
+    </section><!-- End Hero -->
 
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about nav_anchor bg-light">
@@ -396,8 +390,8 @@
         </div>
         <div class="col-lg-6">
           <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
-            <a href="#intro" class="scrollto">Home</a>
-            <a href="#about" class="scrollto">About</a>
+            <a href="/" class="scrollto">Home</a>
+            <a href="/help" class="scrollto">Help</a>
             <a href="https://github.com/tarunvelli/ordbot" target="_blank" >Github</a>
           </nav>
         </div>
