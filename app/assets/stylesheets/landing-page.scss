@@ -13,6 +13,10 @@ html {
   min-height: 100%;
 }
 
+body {
+  overflow-y: scroll;
+}
+
 .mr-1x {
   margin-right: 1em;
 }
@@ -956,6 +960,11 @@ section {
 /*--------------------------------------------------------------
 # Breadcrumbs
 --------------------------------------------------------------*/
+.breadcrumb {
+  padding-left: 0;
+  background-color: #fff;
+}
+
 .breadcrumbs {
   padding: 15px 0;
   background: #f8f8f8;
