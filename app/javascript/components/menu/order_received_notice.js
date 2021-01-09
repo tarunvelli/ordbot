@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+// place holder for accept payments card
 const OrderReceivedNotice = (props) => {
   let phone = encodeURIComponent(`${props.phoneNumber}`)
   let text = encodeURIComponent(`confirm #${props.orderId}`)
@@ -14,7 +15,10 @@ const OrderReceivedNotice = (props) => {
           </div>
           <div className="modal-body">
             <h1> Your order number is #{ props.orderId }</h1>
-            <span> Confirm your order by clicking the following button </span>
+            <span>
+              Confirm your order via whatsapp by sending `confirm #{props.orderId}` to {props.phoneNumber} <br/>
+              or by clicking the following button
+            </span>
             <br/>
             <br/>
             <a className='btn btn-primary' href={`https://api.whatsapp.com/send?phone=${phone}&text=${text}`} > Confirm </a>

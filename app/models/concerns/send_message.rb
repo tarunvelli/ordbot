@@ -42,15 +42,19 @@ module SendMessage
   def send_message(message)
     return if message.nil? || message == false
 
-    @restaurant = restaurant
-    @client = Twilio::REST::Client.new(
-      @restaurant.account_sid, @restaurant.auth_token
-    )
+    begin
+      @restaurant = restaurant
+      @client = Twilio::REST::Client.new(
+        @restaurant.account_sid, @restaurant.auth_token
+      )
 
-    @client.messages.create(
-      from: "whatsapp:#{restaurant.phone_number}",
-      body: message,
-      to: "whatsapp:#{from}"
-    )
+      @client.messages.create(
+        from: "whatsapp:#{restaurant.phone_number}",
+        body: message,
+        to: "whatsapp:#{from}"
+      )
+    rescue StandardError => e
+      puts e
+    end
   end
 end

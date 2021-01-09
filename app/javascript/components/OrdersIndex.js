@@ -68,6 +68,7 @@ class OrdersIndex extends React.Component {
   };
 
   orderCard = (order) => {
+    let timeOfOrder = new Date(order.created_at)
     return (
       <Draggable key={order.id} draggableId={`${order.id}`} index={order.id}>
         {(provided, snapshot) => (
@@ -85,12 +86,16 @@ class OrdersIndex extends React.Component {
                     )
                   })
                 }
-                <h6>Cost : {order.display_cost}</h6>
                 <p className="small text-gray-600">
                   <span>Address : {order.address}</span><br/>
                   <span>Note : {order.note}</span>
                 </p>
-                <sub>Order Id : {order.id}</sub>
+                <h6>Cost : {order.display_cost}</h6>
+                <p className="small text-gray-600">
+                  <span>Order Id : {order.id}</span><br/>
+                  <span>Time : {timeOfOrder.toLocaleTimeString()}</span><br/>
+                  <span>Date : {timeOfOrder.toLocaleDateString()}</span>
+                </p>
               </div>
             </div>
           </div>
