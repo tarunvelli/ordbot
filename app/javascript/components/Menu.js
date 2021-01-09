@@ -101,9 +101,9 @@ class OrdersIndex extends React.Component {
 
   submitButton = () => {
     if (this.state.from && this.state.address && this.cartCount()) {
-      return <button type="button" id="submit-order-button" className="btn btn-outline-orange" onClick={ this.createOrder }>Submit</button>
+      return <button type="button" id="submit-order-button" className="btn btn-outline-orange" onClick={ this.createOrder }>Place Order</button>
     } else {
-      return <button type="button" id="submit-order-button" className="btn btn-outline-orange" disabled >Submit</button>
+      return <button type="button" id="submit-order-button" className="btn btn-outline-orange" disabled >Place Order</button>
     }
   }
 
