@@ -11,7 +11,7 @@
     "actioncable": "^5.2.4-3",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "bootstrap": "4.3.1",
-    "elliptic": "^6.5.3",
+    "elliptic": "^6.5.4",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "prop-types": "^15.7.2",
