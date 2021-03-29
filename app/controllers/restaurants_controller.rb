@@ -97,14 +97,14 @@ class RestaurantsController < PanelController
   def update_user
     authorize @restaurant
     respond_to do |format|
-      if !@restaurant.others_admins?(@restaurant_user)
-        format.json do
-          render json: { error: { message: 'Minimum 1 Admin Required' } }, status: :forbidden
-        end
-      else
+      if @restaurant.other_admins_present?(@restaurant_user)
         @restaurant_user.change_role(params[:role].to_sym, @restaurant)
         format.json do
           restaurant_users_response
+        end
+      else
+        format.json do
+          render json: { error: { message: 'Minimum 1 Admin Required' } }, status: :forbidden
         end
       end
     end

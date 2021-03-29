@@ -35,9 +35,10 @@
                   <%= f.submit "Log in", class: 'btn btn-primary btn-user btn-block' %>
                 </div>
 
-                <hr>
-
-                <%= link_to "Login with Google", omniauth_authorize_path(resource_name, :google_oauth2), class:"btn btn-google btn-user btn-block" %>
+              <% end %>
+              <hr>
+              <%= form_tag(omniauth_authorize_path(resource_name, :google_oauth2), class: 'user', method: 'post') do %>
+                <%= submit_tag "Login with Google", class: "btn btn-google btn-user btn-block" %>
               <% end %>
 
               <hr>

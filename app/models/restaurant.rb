@@ -10,7 +10,7 @@ class Restaurant < ApplicationRecord
 
   validates :name, :phone_number, :account_sid, :auth_token, presence: true
 
-  def others_admins?(restaurant_user)
+  def other_admins_present?(restaurant_user)
     users.any? { |user| user != restaurant_user && user.has_role?(:admin, self) }
   end
 
