@@ -14,6 +14,7 @@ const UsersList = (props) => {
           <th className="text-center" scope="col">User</th>
           <th className="text-center" scope="col">Created At</th>
           <th className="text-center" scope="col">Restaurants</th>
+          <th className="text-center" scope="col">Orders</th>
         </tr>
       </thead>
       <tbody>
@@ -26,14 +27,16 @@ const UsersList = (props) => {
                 </td>
                 <td className="text-center" rowSpan={user.restaurants.length || 1}>{user.email}</td>
                 <td className="text-center" rowSpan={user.restaurants.length || 1}>{user.created_at}</td>
-                <td className="text-center">{user.restaurants[0]}</td>
+                <td className="text-center">{user.restaurants[0]?.name}</td>
+                <td className="text-center">{user.restaurants[0]?.order_count}</td>
               </tr>
               {user.restaurants
                 .slice(1, user.restaurants.length)
                 .map((restaurant, index) => {
                   return (
                     <tr className="text-center" key={`${user.id}_${index}`}>
-                      <td> {restaurant} </td>
+                      <td> {restaurant.name} </td>
+                      <td> {restaurant.order_count} </td>
                     </tr>
                   );
                 })}

@@ -33,6 +33,7 @@ const MonthlySignups = (props) => {
             <Legend />
             <Line type="monotone" dataKey="users" stroke="#1cc88a" />
             <Line type="monotone" dataKey="restaurants" stroke="#4e73df" />
+            <Line type="monotone" dataKey="orders" stroke="#f6c23e" />
           </LineChart>
         </ResponsiveContainer>
       </div>
