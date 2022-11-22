@@ -96,7 +96,7 @@ GEM
     concurrent-ruby (1.1.8)
     connection_pool (2.2.3)
     crass (1.0.6)
-    dalli (2.7.11)
+    dalli (3.2.3)
     devise_invitable (2.0.3)
       actionmailer (>= 5.0)
       devise (>= 4.6)
